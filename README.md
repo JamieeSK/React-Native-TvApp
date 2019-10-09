@@ -31,7 +31,7 @@ git clone git@gitlab.com:het-kasteel/sportnoord/sportnoord-app.git && cd sportno
 npm i
 ```
 
-Next, start the application by either using the AndroidTV or tvOS scripts.
+> Next, start the application by either using the AndroidTV or tvOS scripts.
 
 tvOS
 ```
@@ -54,7 +54,42 @@ This project is maintained by 'Het Kasteel'.
         <a href="https://github.com/Vanture">
           <img width="150" height="150" src="https://gitlab.com/uploads/-/system/user/avatar/2254656/avatar.png?width=400">
           </br>
-          Vanture
+          Tim Twiest
+        </a>
+      </td>
+        <td align="center">
+        <a href="#">
+          <img width="150" height="150" src="https://secure.gravatar.com/avatar/183f823645541791b1348ef9cbb0fbf9?s=800&d=identicon">
+          </br>
+          Jamie Konigferander
+        </a>
+      </td>
+        <td align="center">
+        <a href="#">
+          <img width="150" height="150" src="https://secure.gravatar.com/avatar/183f823645541791b1348ef9cbb0fbf9?s=800&d=identicon">
+          </br>
+          Dennis Verhaagen
+        </a>
+      </td>
+        <td align="center">
+        <a href="#">
+          <img width="150" height="150" src="https://secure.gravatar.com/avatar/183f823645541791b1348ef9cbb0fbf9?s=800&d=identicon">
+          </br>
+           Benjamin Nami
+        </a>
+      </td>
+        <td align="center">
+        <a href="#">
+          <img width="150" height="150" src="https://secure.gravatar.com/avatar/183f823645541791b1348ef9cbb0fbf9?s=800&d=identicon">
+          </br>
+           Robbin Bakker
+        </a>
+      </td>
+              <td align="center">
+        <a href="#">
+          <img width="150" height="150" src="https://secure.gravatar.com/avatar/183f823645541791b1348ef9cbb0fbf9?s=800&d=identicon">
+          </br>
+           Gerdine Kwebeman
         </a>
       </td>
     </tr>
