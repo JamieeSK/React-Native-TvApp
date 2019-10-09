@@ -1,6 +1,6 @@
 # SportNoord App
 
-![Documentation](https://img.shields.io/badge/docs-javadocs-green.svg)
+![Documentation](https://img.shields.io/static/v1?label=!!!&message=Documentation&color=%3CCOLOR%3E)
 
 App for Sportnoord, that will show all kind of videos about sports, and livestreams.
 
