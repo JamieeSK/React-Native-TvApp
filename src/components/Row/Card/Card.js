@@ -57,7 +57,7 @@ export default class Card extends React.Component {
 
                     <View>
                         <View style={[styles.imageContainer], isSelected ? styles.selectedCard : styles.unselectedCard}>
-                            <Image source={isSelected ? { uri: 'https://via.placeholder.com/350/FFA400/EBEBEBE/?text=' + name } : { uri: 'https://via.placeholder.com/350/C3272B/EBEBEBE/?text=' + name }}
+                            <Image source={isSelected ? { uri: 'https://via.placeholder.com/350/FFA400/EBEBEB/?text=' + name } : { uri: 'https://via.placeholder.com/350/C3272B/EBEBEB/?text=' + name }}
                                 style={{ flex: 1, width: null, height: null, resizeMode: 'cover' }}
                             />
                         </View>
