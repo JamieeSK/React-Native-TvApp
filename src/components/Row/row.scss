@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+
+.rowContainer {
+    height: 450;
+    margin-top: 20;
+}
+
+.categoryTitle {
+    font-size: 3.75rem;
+    color: #ffffff;
+    padding-left: 65px;
+    margin-bottom: 30px;
+}
+
+.errorText {
+    color: color(error);
+    text-align: center;
+    font-size: 32px;
+}

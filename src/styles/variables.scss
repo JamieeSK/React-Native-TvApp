@@ -1,0 +1,20 @@
+$colors: (
+  text:#FFFFFF,
+  background:#0a1e28,
+  success:#32db64,
+  error:#C91F37,
+ 
+  brand: (
+    primary:#0a1e28,
+    secondary:#e62341,
+    tertiary:#ffffff,
+  )
+);
+
+@function color($color-name, $color-variant:null) {
+    @if ($color-variant != null) {
+      @return map-get(map-get($colors, $color-name), $color-variant);
+    } @else {
+      @return map-get($colors, $color-name);
+    }
+}
