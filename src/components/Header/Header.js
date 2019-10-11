@@ -46,7 +46,7 @@ export default class Header extends React.Component {
                             onPress={() => this.onPress()}
                             onShowUnderlay={() => this.onSelect()}
                             onHideUnderlay={() => this.onExit()}
-                            underlayColor={'transparent'}
+                            underlayColor={'#ebebeb'}
                             activeOpacity={0.7}>
                             <Text style={styles.cardButtonText}>Watch</Text>
                         </TouchableHighlight>
