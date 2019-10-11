@@ -53,7 +53,7 @@ export default class Card extends React.Component {
                     onShowUnderlay={() => this.onSelect()}
                     onHideUnderlay={() => this.onExit()}
                     activeOpacity={0.7}
-                    underlayColor={'#0a1e28'}>
+                    underlayColor={'transparent'}>
 
                     <View>
                         <View style={[styles.imageContainer], isSelected ? styles.selectedCard : styles.unselectedCard}>
