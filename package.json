@@ -1,0 +1,32 @@
+{
+  "name": "tvOS",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "16.8.6",
+    "react-native": "^0.61.2",
+    "react-native-media-controls": "^1.1.1",
+    "react-native-video": "^5.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.0",
+    "@babel/runtime": "^7.5.0",
+    "babel-preset-react-native": "4",
+    "@react-native-community/eslint-config": "^0.0.3",
+    "babel-jest": "^24.1.0",
+    "jest": "^24.1.0",
+    "metro-react-native-babel-preset": "^0.54.1",
+    "postcss": "^7.0.18",
+    "postcss-css-variables": "^0.13.0",
+    "react-native-css-transformer": "^1.2.4",
+    "react-native-postcss-transformer": "^1.2.4",
+    "react-test-renderer": "16.8.6"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}

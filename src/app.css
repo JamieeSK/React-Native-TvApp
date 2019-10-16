@@ -1,0 +1,57 @@
+.sectionContainer {
+    margin-top: 32;
+    padding-right: 24;
+}
+
+.sectionTitle {
+    font-size: 32;
+    font-weight: 600;
+}
+
+.colorPrimary {
+    color: #3880ff;
+}
+
+.colorSecondary {
+    color: #0cd1e8;
+}
+
+.sectionDescription {
+    margin-top: 8;
+    font-size: 18;
+    font-weight: 400;
+    color: #222222;
+}
+
+.highlight {
+    font-weight: 700;
+    color: #f04141;
+}
+
+.sectionMessage {
+    font-size: 32;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 75px;
+    margin-bottom: 50px;
+}
+
+.container {
+    flex: 1;
+}
+
+.toolbar {
+    margin-top: 30;
+    background-color: white;
+    padding: 10;
+    border-radius: 5px;
+}
+
+.mediaPlayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: black;
+}
