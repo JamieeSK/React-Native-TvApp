@@ -8,7 +8,6 @@ import {
 } from "react-native";
 
 import styles from "./card.scss";
-import Video from 'react-native-video';
 
 export default class Card extends React.Component {
     constructor(props) {

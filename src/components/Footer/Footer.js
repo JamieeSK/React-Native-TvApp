@@ -11,11 +11,13 @@ export default class Footer extends React.Component {
     render() {
         return (
             <>
-                <TouchableHighlight>
-                    <View style={styles.footer}>
-                        <Text style={styles.footerTitle}>Footer Text...</Text>
-                    </View>
-                </TouchableHighlight>
+                <Fragment>
+                    <TouchableHighlight>
+                        <View style={styles.footer}>
+                            <Text style={styles.footerTitle}> made with <Text style={styles.highlight}>&#9829;</Text> by vanture.</Text>
+                        </View>
+                    </TouchableHighlight>
+                </Fragment>
             </>
         );
     }

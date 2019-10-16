@@ -16,6 +16,8 @@
     "@babel/runtime": "^7.5.0",
     "@react-native-community/eslint-config": "^0.0.3",
     "babel-jest": "^24.1.0",
+    "babel-plugin-react-native-platform-specific-extensions": "^1.1.1",
+    "babel-preset-react-native": "^4.0.1",
     "jest": "^24.1.0",
     "metro-react-native-babel-preset": "^0.54.1",
     "node-sass": "^4.12.0",

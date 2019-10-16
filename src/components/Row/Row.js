@@ -4,6 +4,7 @@ import {
     View,
     ScrollView,
     Text,
+    Platform,
 } from "react-native";
 
 import Card from "./Card/Card";
@@ -25,6 +26,13 @@ export default class Row extends React.Component {
 
     onScroll = () => {
         console.log('#onScroll');
+
+        // const instructions = Platform.select({
+        //     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
+        //     android:
+        //         'Double tap R on your keyboard to reload,\n' +
+        //         'Shake or press menu button for dev menu',
+        // });
     }
 
     fetchData = () => {

@@ -1,10 +1,8 @@
 import React, { Fragment } from 'react';
 import {
-    Platform,
     ScrollView,
     View,
     Text,
-    Dimensions,
     StyleSheet,
 } from 'react-native';
 
@@ -17,8 +15,6 @@ import Header from "./components/Header/Header";
 import Row from "./components/Row/Row";
 // Import the Header Footer.
 import Footer from './components/Footer/Footer';
-
-import Video from 'react-native-video';
 
 export default class Home extends React.Component {
     render() {
