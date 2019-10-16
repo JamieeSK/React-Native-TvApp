@@ -3,7 +3,6 @@ import {
     ScrollView,
     View,
     Text,
-    StyleSheet,
 } from 'react-native';
 
 // Import the App Style.
