@@ -15,6 +15,8 @@ import Header from "./components/Header/Header";
 import Row from "./components/Row/Row";
 // Import the Header Footer.
 import Footer from './components/Footer/Footer';
+// Import the Header Banner (live). 
+// import Banner from '.components/Banner/Banner';
 
 export default class Home extends React.Component {
     render() {
@@ -26,6 +28,8 @@ export default class Home extends React.Component {
                         <View>
                             {/* The Header of the App that includes the Logo, Card you select. */}
                             < Header />
+                            {/* Build the banner of the liveshow */}
+                            {/* < Banner /> */}
                             {/* Build the Row holding the Cards. */}
                             < Row />
                             {/* The Footer of the Application, holding the socials, and other necessaries */}

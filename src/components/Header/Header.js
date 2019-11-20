@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import {
     View,
     Text,
+    Image,
     TouchableHighlight
 } from 'react-native';
 
@@ -38,10 +39,12 @@ export default class Header extends React.Component {
             <>
                 <View style={styles.headerContainer}>
                     <View style={styles.cardContainer}>
-                        <Text style={styles.cardTitle}>{'{'}LIVE STREAM{'}'}</Text>
-                        <Text style={styles.cardSubTitle}>{'{'}INFORMATION{'}'}</Text>
+                        {/* <Text style={styles.cardTitle}>{'{'}LIVE STREAM{'}'}</Text> */}
+                        <Image style={styles.headerLogo} source={require('../img/SPORTNOORD_logo_RGB_diap.png')}></Image>
 
-                        <TouchableHighlight
+                        {/* <Text style={styles.cardSubTitle}>{'{'}INFORMATION{'}'}</Text> */}
+
+                        {/* <TouchableHighlight
                             style={[styles.cardButton]}
                             onPress={() => this.onPress()}
                             onShowUnderlay={() => this.onSelect()}
@@ -49,7 +52,7 @@ export default class Header extends React.Component {
                             underlayColor={'#ebebeb'}
                             activeOpacity={0.7}>
                             <Text style={styles.cardButtonText}>Watch</Text>
-                        </TouchableHighlight>
+                        </TouchableHighlight> */}
 
                     </View>
                 </View>
