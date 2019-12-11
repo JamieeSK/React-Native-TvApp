@@ -1,6 +1,6 @@
 .headerContainer  {
     margin-right: auto;
-    height: 75px;
+    height: 60px;
     margin-left:  auto;
     position: relative;
     background-color: #050505;
@@ -18,60 +18,10 @@
     display: flex;
     flex: 1;
     align-items: center;
-    // flex-direction: center;
-    // justify-content: center;
-    // align-items: stretch;
-}
-
-.cardTitle {
-    color: #ffffff;
-    padding-top: 50px;
-    font-size: 1.55rem;
-    text-align: left;
-    padding-bottom: 20px;
-}
-
-.cardSubTitle {
-    font-size: 1.25rem;
-    margin-bottom: 40;
-    color: #ffffff;
-}
-
-.cardButton {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    width: 150px;
-    background-color:#ffffff;
-    border-top-left-radius: 5;
-    border-top-right-radius: 5;
-    border-bottom-left-radius: 5;
-    border-bottom-right-radius: 5;
-}
-
-.cardButtonText {
-    color: #000000;
-    text-align: center;
-    font-size: 1.55rem;
-    text-transform: uppercase;
 }
 
 .headerLogo {
     margin-top: 15px;
     width: 35%;
     height: 44px;
-    
-    // flex: 1;
-    // display: flexbox;
-    // flex-direction: center;
-
-    // justify-content: center;
-    // align-items: center;
-    // text-align: center;
-    
-    // margin: 0 auto;
-    // margin-left: 50px;
-    // align-self: center;
-    // align-items: center;
-    // text-align: center;
-    // alignItems: 'center',
 }

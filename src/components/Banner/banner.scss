@@ -1,0 +1,43 @@
+.bannerContainer  {
+    margin-right: auto;
+    height: 220px;
+    margin-left:  auto;
+    position: relative;
+    background-color: #050505;
+    width: 100%;
+}
+
+.bannerContainer {
+    width: 100%;
+    line-height: 150%;
+    float: left;
+    overflow: hidden;
+    white-space: normal;
+    display: flex;
+    flex: 1;
+    // align-items: row
+    flex-direction: row;
+    // display: inline-block;
+}
+
+.bannerPic {
+    margin-top: 15px;
+    width: 60%;
+    height: 100%;
+}
+
+.textTest {
+    margin-top: 10px;
+    color: #ffffff;
+    font-size: 1.75rem;
+}
+
+.bannerFiets {
+    // background-color: #003171;
+    margin-top:15px;
+    // float: left;
+    width: 50%;
+    height: 100%;
+    // z-index: 100;
+   
+}

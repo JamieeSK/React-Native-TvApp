@@ -65,7 +65,20 @@ export default class Row extends React.Component {
             <>
                 <View style={styles.rowContainer}>
 
-                    <Text style={styles.categoryTitle}>{'{'}Catogorieën{'}'}</Text>
+                    <Text style={styles.categoryTitle}>{'{'}Sportcatogorieën{'}'}</Text>
+                    <ScrollView
+                        onScroll={this.onScroll()}
+                        keyboardShouldPersistTaps='always'
+                        keyboardDismissMode='on-drag'
+                        snapToAlignment='start'
+                        contentInsetAdjustmentBehavior="automatic"
+                        horizontal={true}
+                        showsHorizontalScrollIndicator={false}>
+
+                        < Content />
+                    </ScrollView>
+
+                    <Text style={styles.categoryTitle}>{'{'}Sportcatogorieën{'}'}</Text>
                     <ScrollView
                         onScroll={this.onScroll()}
                         keyboardShouldPersistTaps='always'

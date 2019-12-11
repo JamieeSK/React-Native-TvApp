@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
 import {
     View,
+    Text,
     Image,
 } from 'react-native';
 
-import styles from "./header.scss";
+import styles from "./menu.scss";
 
-export default class Header extends React.Component {
+export default class Menu extends React.Component {
     constructor(props) {
         super(props);
 
@@ -35,10 +36,8 @@ export default class Header extends React.Component {
     render() {
         return (
             <>
-                <View style={styles.headerContainer}>
-                    <View style={styles.cardContainer}>
-                        <Image style={styles.headerLogo} source={require('../img/SPORTNOORD_logo_RGB_diap.png')}></Image>
-                    </View>
+                <View style={styles.menuContainer}>
+                    <Image style={styles.menuSearch} source={require('../img/path61.png')}></Image>
                 </View>
             </>
         );

@@ -15,7 +15,9 @@ import Row from "./components/Row/Row";
 // Import the Header Footer.
 import Footer from './components/Footer/Footer';
 // Import the Header Banner (live). 
-// import Banner from '.components/Banner/Banner';
+import Banner from './components/Banner/Banner';
+// Import the Menu
+import Menu from './components/Menu/Menu';
 
 export default class Home extends React.Component {
     render() {
@@ -25,11 +27,14 @@ export default class Home extends React.Component {
                 <Fragment>
                     <ScrollView style={styles.container}>
                         <View>
+                            {/* The Menu of the app */}
+                            <Menu />
                             {/* The Header of the App that includes the Logo, Card you select. */}
                             < Header />
-                            {/* Build the banner of the liveshow */}
-                            {/* < Banner /> */}
+                            {/* Build the Banner of the liveshow */}
+                            < Banner />
                             {/* Build the Row holding the Cards. */}
+                            < Row />
                             < Row />
                             {/* The Footer of the Application, holding the socials, and other necessaries */}
                             < Footer />
