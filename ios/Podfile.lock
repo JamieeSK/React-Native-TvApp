@@ -65,11 +65,6 @@ PODS:
     - React-cxxreact (= 0.60.4-6)
     - React-jsi (= 0.60.4-6)
   - React-jsinspector (0.60.4-6)
-  - react-native-video (5.0.2):
-    - React
-    - react-native-video/Video (= 5.0.2)
-  - react-native-video/Video (5.0.2):
-    - React
   - React-RCTActionSheet (0.60.4-6):
     - React-Core (= 0.60.4-6)
   - React-RCTAnimation (0.60.4-6):
@@ -108,7 +103,6 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
-  - react-native-video (from `../node_modules/react-native-video`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
   - React-RCTBlob (from `../node_modules/react-native/Libraries/Blob`)
@@ -148,8 +142,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
-  react-native-video:
-    :path: "../node_modules/react-native-video"
   React-RCTActionSheet:
     :path: "../node_modules/react-native/Libraries/ActionSheetIOS"
   React-RCTAnimation:
@@ -186,7 +178,6 @@ SPEC CHECKSUMS:
   React-jsi: 565e24b12e45e89c09e87011e199c9ee0cead896
   React-jsiexecutor: c95862b0841fc0bb0dbb159607b9f601d9e64b66
   React-jsinspector: 0a94a29f22d86f4a3b56e69352af9afca7b452ef
-  react-native-video: 961749da457e73bf0b5565edfbaffc25abfb8974
   React-RCTActionSheet: 2dbb4450c30a4fe1c4b911ff2fb21f193adbde4d
   React-RCTAnimation: e8136ac9aa2451fcaaefcd602b9aa7a19f32aa1f
   React-RCTBlob: d86216b4a87d3e51393fde2afb4cdd6367a933aa
@@ -199,6 +190,6 @@ SPEC CHECKSUMS:
   React-RCTWebSocket: d3b4e26e23234fc104eab8a437cc8a198d747f92
   yoga: bc32a6681c6e5aa51b633c72ab67ac4a02aad409
 
-PODFILE CHECKSUM: a5aebc6acc1f6322b930165b84535b4b1bf43933
+PODFILE CHECKSUM: f52b2f80991cef056aa51af54f7613dcbf0f1da8
 
-COCOAPODS: 1.8.1
+COCOAPODS: 1.8.3

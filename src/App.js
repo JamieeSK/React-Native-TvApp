@@ -18,7 +18,7 @@ import Row from "./components/Row/Row";
 // Import the Header Footer.
 import Footer from './components/Footer/Footer';
 
-import Video from 'react-native-video';
+// import Video from 'react-native-video';
 
 export default class Home extends React.Component {
     render() {
