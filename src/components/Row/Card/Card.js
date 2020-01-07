@@ -7,9 +7,13 @@ import {
     TouchableHighlight,
 } from "react-native";
 
+
+import { withNavigation } from 'react-navigation';
 import styles from "./card.scss";
 
-export default class Card extends React.Component {
+
+// export default class Card extends React.Component {
+class Card extends React.Component {
     constructor(props) {
         super(props);
 
@@ -17,16 +21,24 @@ export default class Card extends React.Component {
             isSelected: false,
             id: this.props.id,
             name: this.props.name,
-            genre: this.props.genre
+            genre: this.props.genre,
+            navigation: this.props.navigation,
         }
 
         this.onPress = this.onPress.bind(this);
         this.onSelect = this.onSelect.bind(this);
         this.onExit = this.onExit.bind(this);
+        this.navigate = this.navigate.bind(this);
+    }
+
+    navigate = () => {
+        console.log("navigate");
+        
     }
 
     onPress = () => {
         console.log('#onPress');
+        this.props.navigation.navigate("VideoPlayer");
     }
 
     onSelect = () => {
@@ -43,10 +55,11 @@ export default class Card extends React.Component {
         const { isSelected, id, name, genre } = this.state;
 
         const appName = config.displayName.toUpperCase();
-
+        
         return (
             <>
-                <TouchableHighlight
+                <TouchableHighlight 
+                    style={styles.card}
                     key={id}
                     onPress={() => this.onPress()}
                     onShowUnderlay={() => this.onSelect()}
@@ -70,3 +83,4 @@ export default class Card extends React.Component {
         );
     }
 }
+export default withNavigation(Card);

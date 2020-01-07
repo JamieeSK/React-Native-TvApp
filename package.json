@@ -9,7 +9,11 @@
     "axios": "^0.19.0",
     "postcss-plugin": "^1.0.0",
     "react": "16.8.6",
-    "react-native": "npm:react-native-tvos@0.60.4-6"
+    "react-native": "npm:react-native-tvos@0.60.4-6",
+    "react-native-gesture-handler": "^1.5.2",
+    "react-native-media-controls": "^1.1.1",
+    "react-native-screens": "^2.0.0-alpha.22",
+    "react-native-video": "^5.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.5.0",

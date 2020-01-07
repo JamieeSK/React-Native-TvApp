@@ -14,7 +14,7 @@ export default class Footer extends React.Component {
                 <Fragment>
                     <TouchableHighlight>
                         <View style={styles.footer}>
-                            <Text style={styles.footerTitle}> made with <Text style={styles.highlight}>&#9829;</Text> by Gerrriee.</Text>
+                            <Text style={styles.footerTitle}> Made with <Text style={styles.highlight}>&#9829;</Text> by Jamie.</Text>
                         </View>
                     </TouchableHighlight>
                 </Fragment>

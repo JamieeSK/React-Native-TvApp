@@ -1,10 +1,55 @@
-.menuContainer {
-    width: 4%;
-    // height: 400px;
-    background-color: #AD1C33;
+.menuContainer { 
+    position: absolute;
+    align-self: flex-start;
+    width: 5%;
+    height: 100%;
+    background-color: #E62341;
+    z-index: 10;
+    display: flex;
+
+    &__active {
+        position: absolute;
+        align-self: flex-start;
+        width: 25%;
+        height: 100%;
+        background-color: #E62341;
+        z-index: 10;
+        display: flex;    
+    }
 }
 
-// .menuSearch {
-//     width: 50%;
-//     color:
-// }
+.menu {
+    background-color: #AD1C33;
+    padding-top: 210px;
+}
+
+.menuContent {
+    flex-direction: row;
+}
+
+.menuTextHidden {
+    display: hidden;
+}
+
+.menuText {
+    margin-top: 20px;
+    font-size: 20px;
+    color: white;
+}
+
+.menuImg {
+    margin-left: 7px;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.menuAfter {
+    background-color: #E62341;
+}
+
+.menuSearchSelect {
+    margin-left: 5px;
+    margin-top: 20px;
+    background-color: greenyellow;
+}

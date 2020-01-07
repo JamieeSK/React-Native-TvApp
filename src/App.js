@@ -1,47 +1,28 @@
-import React, { Fragment } from 'react';
+import Homepage from "../src/components/Screens/Homepage/Homepage";
+import NewScreen from "../src/components/Screens/NewScreen/NewScreen";
+import VideoPlayer from "../src/components/Screens/VideoPlayer/VideoPlayer";
+
 import {
-    ScrollView,
-    View,
-    Text,
-} from 'react-native';
+    createStackNavigator,
+    createSwitchNavigator,
+    createAppContainer,
+  } from 'react-navigation';
+import { enableScreens } from 'react-native-screens';
 
-// Import the App Style.
-import styles from "./app.scss";
 
-// Import the Header Component.
-import Header from "./components/Header/Header";
-// Import the Header Row.
-import Row from "./components/Row/Row";
-// Import the Header Footer.
-import Footer from './components/Footer/Footer';
-// Import the Header Banner (live). 
-import Banner from './components/Banner/Banner';
-// Import the Menu
-import Menu from './components/Menu/Menu';
+enableScreens();
 
-export default class Home extends React.Component {
-    render() {
+const MainScreenNav = createStackNavigator({
+    Homepage: { screen: Homepage },
+    NewScreen: { screen: NewScreen },
+    VideoPlayer: { screen: VideoPlayer },
+});
+  
+const ExampleApp = createSwitchNavigator({
+    Home: { screen: MainScreenNav },
+},
+{
+    initialRouteName: 'Home',
+});
 
-        return (
-            <>
-                <Fragment>
-                    <ScrollView style={styles.container}>
-                        <View>
-                            {/* The Menu of the app */}
-                            <Menu />
-                            {/* The Header of the App that includes the Logo, Card you select. */}
-                            < Header />
-                            {/* Build the Banner of the liveshow */}
-                            < Banner />
-                            {/* Build the Row holding the Cards. */}
-                            < Row />
-                            < Row />
-                            {/* The Footer of the Application, holding the socials, and other necessaries */}
-                            < Footer />
-                        </View>
-                    </ScrollView>
-                </Fragment>
-            </>
-        );
-    }
-}
+export default createAppContainer(ExampleApp);
