@@ -78,6 +78,14 @@ cd ../../
 ```
 >Run the script again, it should work now!
 
+If you get this error:
+```
+> Task: :app:installDebug FAILED
+```
+>Close your emulator, terminal and Metro Bundler
+
+>Open terminal and emulator and run the script again, it should work now!
+
 ## Authors
 
 This project is maintained by 'Het Kasteel'.
