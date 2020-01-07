@@ -44,17 +44,6 @@ npm add react-native-screens
 npm install --save react-native-gesture-handler
 ```
 
->```cd``` to the build.gradle file
-```bash
-cd android/app/build.gradle
-```
->add this to the dependencies section:
-```bash
-implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
-implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
-```
-
-
 >Next, start the application by either using the AndroidTV or tvOS scripts:
 
 tvOS
