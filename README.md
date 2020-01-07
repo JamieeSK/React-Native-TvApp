@@ -19,29 +19,75 @@ To build Nexus, the following will need to be installed and available from your 
 
 ## Getting started
 
-You can build this project running the following command:
+You can build this project running the following commands;
 
-```
+>First, clone this repository:
+```bash
 git clone git@gitlab.com:het-kasteel/sportnoord/sportnoord-app.git && cd sportnoord-app
 ```
 
-> Then install the NPM dependecies.
-
+>Then use `git checkout` to go to the right branch:
+```bash
+git checkout features/styling
 ```
-npm i
+
+>Depending on the branch, install the following NPM dependecies:
+
+
+features/video
+
+```bash
+npm install
+npm install --save react-native-video
+npm install --save react-native-media-controls
+npm add react-native-screens
+npm install --save react-native-gesture-handler
 ```
 
-> Next, start the application by either using the AndroidTV or tvOS scripts.
+>```cd``` to the build.gradle file
+```bash
+cd android/app/build.gradle
+```
+>add this to the dependencies section:
+```bash
+implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
+```
+
+
+>Next, start the application by either using the AndroidTV or tvOS scripts:
 
 tvOS
-```
+```bash
 sh scripts/tvos.sh
 ```
-
 AndroidTV
-```
+
+```bash
 sh scripts/androidtv.sh 
 ```
+
+**NOTE: When using AndroidTV, make sure the emulater is already up and running before running the command.**
+
+## Errors
+It's possible that the first time you try to run the script you get the following error:
+```
+> Task :app:validateSigningDebug FAILED
+```
+>To solve this you need to create an debug keystore; `cd` to the android/app folder:
+```
+cd android/app
+```
+>Then add the following in this folder:
+```
+keytool -genkey -v -keystore debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000
+```
+
+>Return back to your branch:
+```
+cd ../../
+```
+>Run the script again, it should work now!
 
 ## Authors
 
