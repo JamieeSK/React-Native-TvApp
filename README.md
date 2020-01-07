@@ -109,7 +109,7 @@ This project is maintained by 'Het Kasteel'.
       </td>
         <td align="center">
         <a href="#">
-          <img width="150" height="150" src="https://secure.gravatar.com/avatar/183f823645541791b1348ef9cbb0fbf9?s=800&d=identicon">
+          <img width="150" height="150" src="https://gitlab.com/uploads/-/system/user/avatar/3538336/avatar.png?width=400">
           </br>
           Dennis Verhaagen
         </a>
