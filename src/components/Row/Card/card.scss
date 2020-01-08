@@ -23,7 +23,8 @@
 .cardTitle {
     margin-top: 10px;
     color: #ffffff;
-    font-size: 1.75rem;
+    font-weight: 700;
+    font-size: 1.15rem;
 }
 
 .cardGenre {
@@ -31,6 +32,10 @@
     color: #BDC3C7;
     font-size: 0.95rem;
     text-transform: uppercase;
+}
+
+.type {
+    color: #C3272B;
 }
 
 .icon {
