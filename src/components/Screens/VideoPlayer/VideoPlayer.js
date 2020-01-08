@@ -36,7 +36,8 @@ class VideoPlayer extends Component {
             navigation: this.props.navigation,
         };
     
-        this.goBack = this.goBack.bind(this);
+        // this.goBack = this.goBack.bind(this);
+        // this.getParam = this.getParam.bind(this);
     }
 
     static navigationOptions = {
@@ -71,17 +72,24 @@ class VideoPlayer extends Component {
         //*Wanneer video op pauze is, de header laten zien. Anders niet.
         if (this.paused) {
             navigationOptions = {
-                header: !null,
+                // header: !null,
                 title: "VideoPlayer", 
                 headerTitle: "Video",
-                headerTintColor: "white",
-
-                headerStyle: {
-                    backgroundColor: "black",
+                // headerTintColor: "black",
                 
+                headerStyle: {
+                    // position: 'absolute',
+                    backgroundColor: "black",
+                    // backgroundColor: 'transparent',
+                    // shadowOpacity: 0,
+                    // headerTransparent: true,
                 },
+                // header: null,
+                
             }
         }
+
+       
     };
 
     onReplay = () => {
@@ -118,9 +126,9 @@ class VideoPlayer extends Component {
         else this.setState({ screenType: 'content' });
     };
 
-    goBack = () => {
-        this.props.navigation.goback(null);
-    }
+    // goBack = () => {
+    //     this.props.navigation.goback(null);
+    // }
 
     renderToolbar = () => (
         <TouchableHighlight>
@@ -133,6 +141,15 @@ class VideoPlayer extends Component {
     onSeeking = currentTime => this.setState({ currentTime });
 
     render() {
+        console.log(JSON.stringify(this.props.navigation.getParam("video", 'NO-ID')));
+        // console.log(JSON.stringify(this.props.navigation.getParam('id', 'NO-ID')));
+        let video = JSON.stringify(this.props.navigation.getParam("video", 'NO-Video'))
+
+        video = video.replace(/\"/g, "");
+        // video = video.replace("\"", "");
+
+        console.log(`VIDEO ${video}`);
+        
         return (
             <View style={styles.container}>
                 <Video
@@ -144,7 +161,10 @@ class VideoPlayer extends Component {
                     ref={videoPlayer => (this.videoPlayer = videoPlayer)}
                     resizeMode={this.state.screenType}
                     onFullScreen={this.state.isFullScreen}
-                    source={{ uri: 'https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4' }}
+                    // source={{ uri: 'https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4' }}
+                    // source={{ uri: "https://ndc.bbvms.com/mediaclip/3510417/redirect/MP4_HD" }}
+                    // source={{ uri: 'https://d3jbi46382yahz.cloudfront.net/ndc/media/2020/01/05/asset-3532482-1578246607915354.mp4' }}
+                    source={{ uri: video }}
                     style={styles.mediaPlayer}
                     volume={50}
                 />

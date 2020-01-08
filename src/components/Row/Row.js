@@ -11,6 +11,19 @@ import Card from "./Card/Card";
 
 import styles from "./row.scss";
 
+/**
+ * @async
+ * @param {string} link the id for the link.
+ * @returns the Id of the video.
+ *
+ * @author Tim Twiest
+ * @version 0.0.1
+ * @since 0.0.1
+ */
+const getId = link => {
+    return link.split("/c/")[1].replace(".js", "");
+  };
+
 export default class Row extends React.Component {
     constructor(props) {
         super(props);
@@ -26,27 +39,43 @@ export default class Row extends React.Component {
 
     onScroll = () => {
         console.log('#onScroll');
-
-        // const instructions = Platform.select({
-        //     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-        //     android:
-        //         'Double tap R on your keyboard to reload,\n' +
-        //         'Shake or press menu button for dev menu',
-        // });
     }
 
     fetchData = () => {
-        axios.get(`https://vanture.io/api/api.json`).then(res => {
+        const videoUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/ondemand?page=1`;
+    
+        axios
+          .get(videoUrl)
+          .then(res => {
             const cache = res.data;
-            this.setState({
-                cache: cache,
-                isLoading: false
+            const data = [];
+    
+            cache.forEach(element => {
+              let video = {
+                id: element.id,
+                title: element.title.rendered,
+                type: element.match_sport,
+                image: element.featured_image.medium_large,
+                videoId: getId(element.videos[0].video),
+                date: element.match_dates.start,
+                videoUrl: `https://ndc.bbvms.com/mediaclip/${getId(
+                  element.videos[0].video
+                )}/redirect/MP4_HD`
+              };
+    
+              data.push(video);
             });
-        }).catch(error => {
+    
+            this.setState({
+              cache: data,
+              isLoading: false
+            });
+          })
+          .catch(error => {
             if (error.response) {
-                console.log(error.responderEnd);
+              console.log(error.responderEnd);
             }
-        });
+          });
     }
 
     componentDidMount() {
@@ -57,41 +86,45 @@ export default class Row extends React.Component {
         const { isLoading, cache } = this.state;
 
         const Content = () => {
-            return isLoading ? <Text style={styles.errorText}>{'{'}LOADING...{'}'}</Text> : cache.map(child => <Card
-                key={child.id} id={child.id} name={child.name} genre={child.genre} />)
-        }
+            return isLoading ? (
+              <Text style={styles.errorText}>
+                {"{"}LOADING...{"}"}
+              </Text>
+            ) : (
+              cache.map(child => (
+                <Card
+                  key={child.id}
+                  id={child.id}
+                  title={child.title}
+                  type={child.type}
+                  image={child.image}
+                  videoId={child.videoId}
+                  date={child.date}
+                  videoUrl={child.videoUrl}
+                />
+              ))
+            );
+          };
 
-        return (
-            <>
-                <View style={styles.rowContainer}>
-
-                    <Text style={styles.categoryTitle}>{'{'}Sportcatogorieën{'}'}</Text>
-                    <ScrollView
-                        onScroll={this.onScroll()}
-                        keyboardShouldPersistTaps='always'
-                        keyboardDismissMode='on-drag'
-                        snapToAlignment='start'
-                        contentInsetAdjustmentBehavior="automatic"
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}>
-
-                        < Content />
-                    </ScrollView>
-
-                    <Text style={styles.categoryTitle}>{'{'}Sportcatogorieën{'}'}</Text>
-                    <ScrollView
-                        onScroll={this.onScroll()}
-                        keyboardShouldPersistTaps='always'
-                        keyboardDismissMode='on-drag'
-                        snapToAlignment='start'
-                        contentInsetAdjustmentBehavior="automatic"
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}>
-
-                        < Content />
-                    </ScrollView>
-                </View>
-            </>
-        );
-    }
+       return (
+      <>
+        <View style={styles.rowContainer}>
+          <Text style={styles.categoryTitle}>
+            VIDEO'S
+          </Text>
+          <ScrollView
+            onScroll={this.onScroll()}
+            keyboardShouldPersistTaps="always"
+            keyboardDismissMode="on-drag"
+            snapToAlignment="start"
+            contentInsetAdjustmentBehavior="automatic"
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          >
+            <Content />
+          </ScrollView>
+        </View>
+      </>
+    );
+  }
 }

@@ -20,8 +20,12 @@ class Card extends React.Component {
         this.state = {
             isSelected: false,
             id: this.props.id,
-            name: this.props.name,
-            genre: this.props.genre,
+            title: this.props.title,
+            type: this.props.type,
+            image: this.props.image,
+            videoId: this.props.videoId,
+            date: this.props.date,
+            videoUrl: this.props.videoUrl,
             navigation: this.props.navigation,
         }
 
@@ -38,7 +42,9 @@ class Card extends React.Component {
 
     onPress = () => {
         console.log('#onPress');
-        this.props.navigation.navigate("VideoPlayer");
+        const { videoUrl } = this.state;
+        this.props.navigation.navigate("VideoPlayer", {video:videoUrl});
+        // this.props.navigation.navigate("VideoPlayer", {id: 200});
     }
 
     onSelect = () => {
@@ -52,33 +58,45 @@ class Card extends React.Component {
     }
 
     render() {
-        const { isSelected, id, name, genre } = this.state;
-
+        const { isSelected, id, title, type, image } = this.state;
         const appName = config.displayName.toUpperCase();
         
         return (
             <>
-                <TouchableHighlight 
-                    style={styles.card}
-                    key={id}
-                    onPress={() => this.onPress()}
-                    onShowUnderlay={() => this.onSelect()}
-                    onHideUnderlay={() => this.onExit()}
-                    activeOpacity={0.7}
-                    underlayColor={'transparent'}>
-
-                    <View>
-                        <View style={[styles.imageContainer], isSelected ? styles.selectedCard : styles.unselectedCard}>
-                            <Image source={isSelected ? { uri: 'https://via.placeholder.com/350/FFA400/EBEBEB/?text=' + name } : { uri: 'https://via.placeholder.com/350/C3272B/EBEBEB/?text=' + name }}
-                                style={{ flex: 1, width: null, height: null, resizeMode: 'cover' }}
-                            />
-                        </View>
-                        <View>
-                            <Text style={styles.cardTitle}>{name}</Text>
-                            <Text style={styles.cardGenre}>{appName} <Text style={styles.icon}>&#9679;</Text> {genre}</Text>
-                        </View>
-                    </View>
-                </TouchableHighlight>
+               <TouchableHighlight
+          key={id}
+          onPress={() => this.onPress()}
+          onShowUnderlay={() => this.onSelect()}
+          onHideUnderlay={() => this.onExit()}
+          activeOpacity={0.7}
+          underlayColor={"transparent"}
+        >
+          <View>
+            <View
+              style={
+                ([styles.imageContainer],
+                isSelected ? styles.selectedCard : styles.unselectedCard)
+              }
+            >
+              <Image
+                source={{ uri: image }}
+                style={{
+                  flex: 1,
+                  width: null,
+                  height: null,
+                  resizeMode: "cover"
+                }}
+              />
+            </View>
+            <View>
+              <Text style={styles.cardTitle}>{title}</Text>
+              <Text style={styles.type}>
+                {appName}
+                <Text style={styles.icon}>&#9679;</Text> {type}
+              </Text>
+            </View>
+          </View>
+        </TouchableHighlight>
             </>
         );
     }

@@ -47,7 +47,7 @@ class Menu extends React.Component {
 
     click = () => {
         console.log("Vergrootglas");
-        this.props.navigation.navigate("VideoPlayer");
+        this.props.navigation.navigate("VideoPlayer", {id: 200});
     }
 
     componentDidMount() {
