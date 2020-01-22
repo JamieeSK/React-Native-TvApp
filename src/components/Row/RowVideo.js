@@ -7,7 +7,7 @@ import {
     Platform,
 } from "react-native";
 
-import Card from "./Card/Card";
+import Card from "./Card/CardVideo";
 
 import styles from "./row.scss";
 
@@ -24,7 +24,7 @@ const getId = link => {
     return link.split("/c/")[1].replace(".js", "");
   };
 
-export default class Row extends React.Component {
+export default class RowVideo extends React.Component {
     constructor(props) {
         super(props);
 
@@ -43,7 +43,7 @@ export default class Row extends React.Component {
 
     fetchData = () => {
         const videoUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/ondemand?page=1`;
-    
+
         axios
           .get(videoUrl)
           .then(res => {
@@ -84,6 +84,8 @@ export default class Row extends React.Component {
 
     render() {
         const { isLoading, cache } = this.state;
+        console.log(isLoading);
+        
 
         const Content = () => {
             return isLoading ? (
@@ -102,6 +104,7 @@ export default class Row extends React.Component {
                   date={child.date}
                   videoUrl={child.videoUrl}
                 />
+                
               ))
             );
           };
@@ -110,7 +113,7 @@ export default class Row extends React.Component {
       <>
         <View style={styles.rowContainer}>
           <Text style={styles.categoryTitle}>
-            VIDEO'S
+            SAMENVATTINGEN
           </Text>
           <ScrollView
             onScroll={this.onScroll()}

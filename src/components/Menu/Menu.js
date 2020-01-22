@@ -6,8 +6,11 @@ import {
     TouchableHighlight,
 } from 'react-native';
 
-import { withNavigation } from 'react-navigation';
+//StyleSheet
 import styles from "../Menu/menu.scss";
+//Screen navigation
+import { withNavigation } from 'react-navigation';
+
 
 class Menu extends React.Component {
     constructor(props) {
@@ -47,7 +50,6 @@ class Menu extends React.Component {
 
     click = () => {
         console.log("Vergrootglas");
-        this.props.navigation.navigate("VideoPlayer", {id: 200});
     }
 
     componentDidMount() {
@@ -69,10 +71,10 @@ class Menu extends React.Component {
             shows = <Text style={styles.menuText}></Text>
         };
 
-        //!Controleren wanneer 1 van de afbeeldingen is geselecteerd
         return (
             <>
                 <View style={[styles.menuContainer], isSelected ? styles.menuContainer__active : styles.menuContainer}>
+                    {/* "Zoeken" */}
                     <TouchableHighlight 
                         onShowUnderlay={() => this.onSelect()}
                         onHideUnderlay={() => this.onExit()}
@@ -84,7 +86,7 @@ class Menu extends React.Component {
                            {zoeken}
                         </View>
                     </TouchableHighlight>
-
+                    {/* "Samenvattingen" */}
                     <TouchableHighlight
                         onShowUnderlay={() => this.onSelect()}
                         onHideUnderlay={() => this.onExit()}
@@ -96,7 +98,7 @@ class Menu extends React.Component {
                            {samenvattingen}
                         </View>
                     </TouchableHighlight>
-
+                    {/* "Clubs" */}
                     <TouchableHighlight
                         onShowUnderlay={() => this.onSelect()}
                         onHideUnderlay={() => this.onExit()}
@@ -107,7 +109,7 @@ class Menu extends React.Component {
                            {clubs}
                         </View>
                     </TouchableHighlight>
-
+                    {/* "Shows" */}
                     <TouchableHighlight
                         onShowUnderlay={() => this.onSelect()}
                         onHideUnderlay={() => this.onExit()}
@@ -118,23 +120,7 @@ class Menu extends React.Component {
                            {shows}
                         </View>
                     </TouchableHighlight>
-
                 </View>
-
-
-                {/* <TouchableHighlight  */}
-                    {/* style={styles.menuContainer} */}
-                    {/* onPress={this.click} */}
-                    {/* // onSelect={this.onSelect} */}
-                    {/* onShowUnderlay={() => this.onSelect()} */}
-                {/* > */}
-                    {/* <View > */}
-                        {/* <Image style={styles.menuSearch} source={require('../img/path61.png')}></Image> */}
-                        {/* <Image style={styles.menuSearch} source={require('../img/path61.png')}></Image> */}
-                        {/* <Image style={styles.menuSearch} source={require('../img/path61.png')}></Image> */}
-                        {/* <Image style={styles.menuSearch} source={require('../img/path61.png')}></Image> */}
-                    {/* </View>     */}
-                {/* </TouchableHighlight> */}
             </>
         );
     }

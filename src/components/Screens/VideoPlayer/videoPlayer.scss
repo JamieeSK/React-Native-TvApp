@@ -1,19 +1,13 @@
-// .container {
-//     flex: 1;
-// }
+.img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
 
-// .toolbar {
-//     margin-top: 30;
-//     background-color: 'white';
-//     padding: 10;
-//     border-radius: 5;
-// }
+.text {
+    color: white;
+}
 
-// .mediaPlayer {
-//     position: 'absolute';
-//     top: 0;
-//     left: 0;
-//     bottom: 0;
-//     right: 0;
-//     background-color: 'black';
-// }
+.container {
+    flex-direction: row;
+}

@@ -1,27 +1,37 @@
-import React, { Component } from 'react';
 //Import React
+import React, { Component } from 'react';
+//Import Basic React Native Component
 import { 
     Platform, 
     StyleSheet, 
     Text, 
     View, 
-    TouchableHighlight 
+    TouchableHighlight,
+    Image,
+    Slider,
 } from 'react-native';
-//Import Basic React Native Component
-import Video from 'react-native-video';
+
 //Import React Native Video to play video
-import MediaControls, { PLAYER_STATES } from 'react-native-media-controls';
+import Video from 'react-native-video';
 //Media Controls to control Play/Pause/Seek and full screen
+import MediaControls, { PLAYER_STATES } from 'react-native-media-controls';
 
-
+//StyleSheet
+import stylesImg from "../VideoPlayer/videoPlayer.scss";
+//Screen navigation
 import { withNavigation } from 'react-navigation';
 
 // This does not work!!!!!
 // import styles from "app.css";
 
+//FIXME: //!Fix tvHandler. _enableTVEventHandler()
+
+var TVEventHandler = require('TVEventHandler');
+
 class VideoPlayer extends Component {
     videoPlayer;
-
+    _tvEventHandler;
+    
     constructor(props) {
         super(props);
         this.state = {
@@ -31,35 +41,102 @@ class VideoPlayer extends Component {
             isLoading: true,
             paused: false,
             playerState: PLAYER_STATES.PLAYING,
-            // screenType: 'content',
             screenType: "cover", //changed from "content" to "cover"
             navigation: this.props.navigation,
         };
     
-        // this.goBack = this.goBack.bind(this);
-        // this.getParam = this.getParam.bind(this);
+        this.goBackButton = this.goBackButton.bind(this);
     }
 
+    //Screen navigation styling
     static navigationOptions = {
-        // title: "VideoPlayer", 
-        
-        // headerShown: false,
-        // header: null,
-        // header: !null,
-        // headerTitle: "Video" ,
-        // headerTintColor: "white",
+        header: null,
+    }
 
-        // headerStyle: {
-        //     backgroundColor: "black",
-        //     // backgroundColor: "transparent",/
-        // }, 
+    // _enableTVEventHandler() {
+    //   this._tvEventHandler = new TVEventHandler();
+    //   this._tvEventHandler.enable(this, function(cmp, evt) {
+    //     if (evt && evt.eventType === 'right') {
+    //       cmp.setState({Gboard: cmp.state.board.move(2)});
+    //     } else if(evt && evt.eventType === 'up') {
+    //       cmp.setState({board: cmp.state.board.move(1)});
+    //     } else if(evt && evt.eventType === 'left') {
+    //       cmp.setState({board: cmp.state.board.move(0)});
+    //     } else if(evt && evt.eventType === 'down') {
+    //       cmp.setState({board: cmp.state.board.move(3)});
+    //     } else if(evt && evt.eventType === 'playPause') {
+    //       cmp.restartGame();
+    //     }
+    //     console.log("cmp:" + cmp);
+    //   console.log("evt:" + evt);
+    //   });
+      
+      _enableTVEventHandler() {
+        this._tvEventHandler = new TVEventHandler();
+        this._tvEventHandler.enable(this, function(cmp, evt) {
+
+          if (evt) {
+            console.log(evt);
+            console.log(evt.eventType);
+            console.log(cmp);
+        
+          }
+
+          if (evt && evt.eventType === "rewind"){
+            console.log("REWIND");
+          }
+
+
+          if (evt && evt.eventType === "playPause") {
+            console.log("cmp.state.paused:");
+            console.log(cmp.state.paused);
+            
+            if (cmp.state.paused == false) {
+                console.log(cmp);
+                
+                cmp.state.paused = true;
+
+                console.log("true");
+                console.log(cmp);
+            } else {
+                
+           //FIXME: //! Won't set the state to "false" once the state is "true"
+                cmp.state.paused = false;
+                
+                console.log("false");
+                console.log(cmp);
+            }
+
+          }
+
+        });
+    }
+  
+    _disableTVEventHandler() {
+      if (this._tvEventHandler) {
+        this._tvEventHandler.disable();
+        delete this._tvEventHandler;
+      }
+    }
+  
+    componentDidMount() {
+      this._enableTVEventHandler();
+    }
+  
+    componentWillUnmount() {
+      this._disableTVEventHandler();
     }
 
     onSeek = seek => {
         //Handler for change in seekbar
-        this.videoPlayer.seek(seek);
-
+        this.videoPlayer.seek(seek);   
+        console.log(seek);
     };
+
+    onRewind = seek => {
+        this.videoPlayer.seek(seek - 5);   
+        console.log(seek - 5);
+    }
 
     onPaused = playerState => {
         //Handler for Video Pause
@@ -67,29 +144,6 @@ class VideoPlayer extends Component {
             paused: !this.state.paused,
             playerState,
         });
-
-        //? Kijken of dit kan.. 
-        //*Wanneer video op pauze is, de header laten zien. Anders niet.
-        if (this.paused) {
-            navigationOptions = {
-                // header: !null,
-                title: "VideoPlayer", 
-                headerTitle: "Video",
-                // headerTintColor: "black",
-                
-                headerStyle: {
-                    // position: 'absolute',
-                    backgroundColor: "black",
-                    // backgroundColor: 'transparent',
-                    // shadowOpacity: 0,
-                    // headerTransparent: true,
-                },
-                // header: null,
-                
-            }
-        }
-
-       
     };
 
     onReplay = () => {
@@ -126,14 +180,17 @@ class VideoPlayer extends Component {
         else this.setState({ screenType: 'content' });
     };
 
-    // goBack = () => {
-    //     this.props.navigation.goback(null);
-    // }
+    goBackButton = () => {
+        this.props.navigation.goBack();
+    }
 
     renderToolbar = () => (
-        <TouchableHighlight>
-            <View>
-                <Text> Name Video </Text>
+        <TouchableHighlight
+            onPress={() => this.goBackButton()}
+        >
+            <View style={stylesImg.container}>
+                <Image style={stylesImg.img} source={require('../../img/goback.png')}></Image>
+                <Text style={stylesImg.text}>{ JSON.stringify(this.props.navigation.getParam("title", 'Untitled')) } </Text>
             </View>
         </TouchableHighlight>
     );
@@ -141,14 +198,8 @@ class VideoPlayer extends Component {
     onSeeking = currentTime => this.setState({ currentTime });
 
     render() {
-        console.log(JSON.stringify(this.props.navigation.getParam("video", 'NO-ID')));
-        // console.log(JSON.stringify(this.props.navigation.getParam('id', 'NO-ID')));
         let video = JSON.stringify(this.props.navigation.getParam("video", 'NO-Video'))
-
-        video = video.replace(/\"/g, "");
-        // video = video.replace("\"", "");
-
-        console.log(`VIDEO ${video}`);
+        video = video.replace(/\"/g, "");        
         
         return (
             <View style={styles.container}>
@@ -161,9 +212,6 @@ class VideoPlayer extends Component {
                     ref={videoPlayer => (this.videoPlayer = videoPlayer)}
                     resizeMode={this.state.screenType}
                     onFullScreen={this.state.isFullScreen}
-                    // source={{ uri: 'https://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4' }}
-                    // source={{ uri: "https://ndc.bbvms.com/mediaclip/3510417/redirect/MP4_HD" }}
-                    // source={{ uri: 'https://d3jbi46382yahz.cloudfront.net/ndc/media/2020/01/05/asset-3532482-1578246607915354.mp4' }}
                     source={{ uri: video }}
                     style={styles.mediaPlayer}
                     volume={50}
@@ -208,5 +256,4 @@ const styles = StyleSheet.create({
     },
 });
 
-// export default VideoPlayer;
 export default withNavigation(VideoPlayer);
