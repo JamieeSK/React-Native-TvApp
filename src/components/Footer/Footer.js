@@ -14,7 +14,7 @@ export default class Footer extends React.Component {
                 <Fragment>
                     <TouchableHighlight>
                         <View style={styles.footer}>
-                            <Text style={styles.footerTitle}>&copy; 2020 - NDC mediagroep</Text>
+                            <Text style={styles.footerTitle}>&copy; 2020 - NDC mediagroep in samenwerking met Noorderp<Text style={{color: '#E8B801'}}>&infin;</Text>rt studenten.</Text>
                         </View>
                     </TouchableHighlight>
                 </Fragment>
