@@ -5,6 +5,7 @@ import {
     ScrollView,
     Text,
     Platform,
+    ActivityIndicator,
 } from "react-native";
 
 import Card from "./Card/CardVideo";
@@ -89,9 +90,7 @@ export default class RowVideo extends React.Component {
 
         const Content = () => {
             return isLoading ? (
-              <Text style={styles.errorText}>
-                {"{"}LOADING...{"}"}
-              </Text>
+              <ActivityIndicator style={styles.activityWrapper} size="large" color="#E62341" />
             ) : (
               cache.map(child => (
                 <Card
@@ -103,8 +102,7 @@ export default class RowVideo extends React.Component {
                   videoId={child.videoId}
                   date={child.date}
                   videoUrl={child.videoUrl}
-                />
-                
+                />   
               ))
             );
           };
@@ -124,7 +122,7 @@ export default class RowVideo extends React.Component {
             horizontal={true}
             showsHorizontalScrollIndicator={false}
           >
-            <Content />
+          <Content />
           </ScrollView>
         </View>
       </>

@@ -5,6 +5,7 @@ import {
     ScrollView,
     Text,
     Platform,
+    ActivityIndicator
 } from "react-native";
 
 import CardShow from "./Card/CardShow";
@@ -88,9 +89,7 @@ export default class RowShow extends React.Component {
            
         const Content = () => {
             return isLoading ? (
-              <Text style={styles.errorText}>
-                {"{"}LOADING...{"}"}
-              </Text>
+              <ActivityIndicator style={styles.activityContainer} size="large" color="#E62341" />
             ) : (
               cache.map(child => (
                 <CardShow
