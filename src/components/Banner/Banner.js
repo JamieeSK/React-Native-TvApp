@@ -23,7 +23,11 @@ export default class Banner extends React.Component {
     }
 
     fetchData = () => {
-        const liveUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/live`;
+      //* DAADWERKELIJKE LINK  
+      // const liveUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/live`;
+      
+        //* TEST LINK!
+        const liveUrl = `https://acceptatie.sportnoord.nl/wp-json/wp/v2/sn-match/live`;
 
         axios
           .get(liveUrl)
@@ -49,7 +53,7 @@ export default class Banner extends React.Component {
     
             this.setState({
               cache: data,
-              isLoading: false
+              isLoading: true
             });
           })
           .catch(error => {
@@ -60,7 +64,7 @@ export default class Banner extends React.Component {
     }
 
     onPress = () => {
-        console.log('#onPress');
+        console.log('onPress Banner');
     }
 
     onSelect = () => {
@@ -88,11 +92,14 @@ export default class Banner extends React.Component {
                 // {"{"}LOADING...{"}"}
               // </Text>
 
-              <View>
-                <Image 
-                  source={require("../img/SPORTNOORD_logo_RGB_diap.png")}
-                ></Image>
-              </View>
+                <View>
+                  <TouchableHighlight>
+                    <Image 
+                      source={require("../img/SPORTNOORD_logo_RGB_diap.png")}
+                    ></Image>
+                  </TouchableHighlight>
+                </View>
+
 
             ) : (
               cache.map(child => (
@@ -106,12 +113,15 @@ export default class Banner extends React.Component {
                 //   date={child.date}
                 //   videoUrl={child.videoUrl}
                 // />
-
-                <TouchableHighlight
-                  // onPress={() => this.onPress}
-                >
-                  <Image source={child.image}></Image>
-                </TouchableHighlight>
+                <View>
+                  <TouchableHighlight
+                    // onPress={() => this.onPress}
+                    
+                  >
+                    {/* <View image={child.image}></View> */}
+                    <Image source={require("../img/screenshot.png")}></Image>
+                  </TouchableHighlight>
+                </View>
                 
               ))
             );

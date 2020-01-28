@@ -82,8 +82,13 @@ class VideoPlayer extends Component {
         
           }
 
-          if (evt && evt.eventType === "rewind"){
-            console.log("REWIND");
+        //   if (evt && evt.eventType === "rewind"){
+        //     console.log("REWIND");
+        //   }
+
+          
+          if (evt && evt.eventType === "select"){
+            console.log("BACK");
           }
 
 

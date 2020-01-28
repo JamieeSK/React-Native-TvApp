@@ -1,0 +1,64 @@
+[
+    {
+        "id": 5017,
+        "date": "2018-09-16T20:05:10",
+        "date_gmt": "2018-09-16T18:05:10",
+        "guid": {
+            "rendered": "http:\/\/acceptatie.sportnoord.nl\/?post_type=sn-match&#038;p=5017"
+        },
+        "modified": "2020-01-22T11:56:55",
+        "modified_gmt": "2020-01-22T10:56:55",
+        "slug": "hurry-up-herpertz-bevo-hc",
+        "status": "publish",
+        "type": "sn-match",
+        "link": "https:\/\/acceptatie.sportnoord.nl\/wedstrijd\/hurry-up-herpertz-bevo-hc\/",
+        "title": {
+            "rendered": "Hurry-up - Herpertz Bevo HC sneek"
+        },
+        "content": {
+            "rendered": "<!-- AddThis Advanced Settings generic via filter on the_content --><!-- AddThis Share Buttons generic via filter on the_content -->",
+            "protected": false
+        },
+        "featured_media": 52,
+        "template": "",
+        "tags": [],
+        "match_status": "live",
+        "match_sport": "Handbal",
+        "match_content": "<!-- AddThis Advanced Settings generic via filter on the_content --><!-- AddThis Share Buttons generic via filter on the_content -->",
+        "match_dates": {
+            "start": "26-12-2018 20:00:00",
+            "end": "27-12-2020 20:00:00"
+        },
+        "featured_image": {
+            "thumbnail": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-150x150.jpg",
+            "medium": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-300x200.jpg",
+            "medium_large": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-768x511.jpg",
+            "large": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-1024x682.jpg",
+            "1536x1536": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash.jpg",
+            "2048x2048": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash.jpg",
+            "custom-carousel-mobile": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-320x320.jpg",
+            "custom-carousel-tablet": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-768x486.jpg",
+            "custom-carousel-desktop": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-1080x460.jpg",
+            "custom-carousel-desktop-large": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-1440x720.jpg",
+            "match-block-small": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-360x250.jpg",
+            "match-block": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-612x468.jpg",
+            "match-live-slider-mobile": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-320x320.jpg",
+            "match-live-slider-tablet": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-768x480.jpg",
+            "match-live-slider-desktop": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-1080x600.jpg",
+            "match-live-slider-desktop-large": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-1920x600.jpg",
+            "structured-data-1-1": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-704x704.jpg",
+            "structured-data-4-3": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-704x528.jpg",
+            "structured-data-16-9": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash-704x396.jpg",
+            "structured-data-publisher-logo": "https:\/\/acceptatie.sportnoord.nl\/wp-content\/uploads\/2018\/06\/miguel-puig-477627-unsplash.jpg"
+        },
+        "videos": [
+            "<p><IFRAME src=\"http:\/\/media.streampartner.nl\/player.php?url=3j9xbox2afemt6yan69l&ref=NDC\" style=\"width:100%; height:100%;\" scrolling=\"no\" frameborder=\"0\" allowfullscreen mozallowfullscreen webkitallowfullscreen><\/IFRAME><\/p>\n"
+        ],
+        "club": [
+            {
+                "name": "Donar",
+                "link": "https:\/\/acceptatie.sportnoord.nl\/clubs\/donar\/"
+            }
+        ]
+    }
+]
