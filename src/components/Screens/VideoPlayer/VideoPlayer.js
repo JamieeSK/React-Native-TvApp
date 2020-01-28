@@ -76,9 +76,9 @@ class VideoPlayer extends Component {
         this._tvEventHandler.enable(this, function(cmp, evt) {
 
           if (evt) {
-            console.log(evt);
-            console.log(evt.eventType);
-            console.log(cmp);
+            // console.log(evt);
+            // console.log(evt.eventType);
+            // console.log(cmp);
         
           }
 
@@ -88,28 +88,30 @@ class VideoPlayer extends Component {
 
           
           if (evt && evt.eventType === "select"){
-            console.log("BACK");
+            // console.log("SELECT");
+            
+            
           }
 
 
           if (evt && evt.eventType === "playPause") {
-            console.log("cmp.state.paused:");
-            console.log(cmp.state.paused);
+            // console.log("cmp.state.paused:");
+            // console.log(cmp.state.paused);
             
             if (cmp.state.paused == false) {
-                console.log(cmp);
+                // console.log(cmp);
                 
                 cmp.state.paused = true;
 
-                console.log("true");
-                console.log(cmp);
+                // console.log("true");
+                // console.log(cmp);
             } else {
                 
            //FIXME: //! Won't set the state to "false" once the state is "true"
                 cmp.state.paused = false;
                 
-                console.log("false");
-                console.log(cmp);
+                // console.log("false");
+                // console.log(cmp);
             }
 
           }
@@ -135,13 +137,13 @@ class VideoPlayer extends Component {
     onSeek = seek => {
         //Handler for change in seekbar
         this.videoPlayer.seek(seek);   
-        console.log(seek);
+        // console.log(seek);
     };
 
-    onRewind = seek => {
-        this.videoPlayer.seek(seek - 5);   
-        console.log(seek - 5);
-    }
+    // onRewind = seek => {
+    //     this.videoPlayer.seek(seek - 5);   
+    //     console.log(seek - 5);
+    // }
 
     onPaused = playerState => {
         //Handler for Video Pause
@@ -149,6 +151,12 @@ class VideoPlayer extends Component {
             paused: !this.state.paused,
             playerState,
         });
+
+        // console.log("paused: ");
+        // // console.log(this.state.paused);
+        // console.log(this.playerState);
+        
+
     };
 
     onReplay = () => {
@@ -205,7 +213,18 @@ class VideoPlayer extends Component {
     render() {
         let video = JSON.stringify(this.props.navigation.getParam("video", 'NO-Video'))
         video = video.replace(/\"/g, "");        
+
+
+        // console.log("LOADING: ");
+        // console.log(this.state.isLoading);
         
+        
+        // console.log("playerstate: ");
+        // console.log(this.state.playerState);
+
+        console.log("paused: ");
+        console.log(this.state.paused);
+
         return (
             <View style={styles.container}>
                 <Video
