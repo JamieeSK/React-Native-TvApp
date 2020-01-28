@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
-import axios from 'axios';
+import React, { Fragment } from "react";
+import axios from "axios";
 import {
-    View,
-    ScrollView,
-    Text,
-    Platform,
-    ActivityIndicator,
+  View,
+  ScrollView,
+  Text,
+  Platform,
+  ActivityIndicator
 } from "react-native";
 
 import Card from "./Card/CardVideo";
@@ -22,97 +22,98 @@ import styles from "./row.scss";
  * @since 0.0.1
  */
 const getId = link => {
-    return link.split("/c/")[1].replace(".js", "");
-  };
+  return link.split("/c/")[1].replace(".js", "");
+};
 
 export default class RowVideo extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            isLoading: true,
-            cache: [],
-        };
+    this.state = {
+      isLoading: true,
+      cache: []
+    };
 
-        this.onScroll = this.onScroll.bind(this);
-        this.fetchData = this.fetchData.bind(this);
-    }
+    this.onScroll = this.onScroll.bind(this);
+    this.fetchData = this.fetchData.bind(this);
+  }
 
-    onScroll = () => {
-        console.log('#onScroll');
-    }
+  onScroll = () => {
+    console.log("#onScroll");
+  };
 
-    fetchData = () => {
-        const videoUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/ondemand?page=1`;
+  fetchData = () => {
+    const videoUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/ondemand?page=1`;
 
-        axios
-          .get(videoUrl)
-          .then(res => {
-            const cache = res.data;
-            const data = [];
-    
-            cache.forEach(element => {
-              let video = {
-                id: element.id,
-                title: element.title.rendered,
-                type: element.match_sport,
-                image: element.featured_image.medium_large,
-                videoId: getId(element.videos[0].video),
-                date: element.match_dates.start,
-                videoUrl: `https://ndc.bbvms.com/mediaclip/${getId(
-                  element.videos[0].video
-                )}/redirect/MP4_HD`
-              };
-    
-              data.push(video);
-            });
-    
-            this.setState({
-              cache: data,
-              isLoading: false
-            });
-          })
-          .catch(error => {
-            if (error.response) {
-              console.log(error.responderEnd);
-            }
-          });
-    }
+    axios
+      .get(videoUrl)
+      .then(res => {
+        const cache = res.data;
+        const data = [];
 
-    componentDidMount() {
-        this.fetchData();
-    }
-
-    render() {
-        const { isLoading, cache } = this.state;
-        console.log(isLoading);
-        
-
-        const Content = () => {
-            return isLoading ? (
-              <ActivityIndicator style={styles.activityWrapper} size="large" color="#E62341" />
-            ) : (
-              cache.map(child => (
-                <Card
-                  key={child.id}
-                  id={child.id}
-                  title={child.title}
-                  type={child.type}
-                  image={child.image}
-                  videoId={child.videoId}
-                  date={child.date}
-                  videoUrl={child.videoUrl}
-                />   
-              ))
-            );
+        cache.forEach(element => {
+          let video = {
+            id: element.id,
+            title: element.title.rendered,
+            type: element.match_sport,
+            image: element.featured_image.medium_large,
+            videoId: getId(element.videos[0].video),
+            date: element.match_dates.start,
+            videoUrl: `https://ndc.bbvms.com/mediaclip/${getId(
+              element.videos[0].video
+            )}/redirect/MP4_HD`
           };
 
-       return (
+          data.push(video);
+        });
+
+        this.setState({
+          cache: data,
+          isLoading: false
+        });
+      })
+      .catch(error => {
+        if (error.response) {
+          console.log(error.responderEnd);
+        }
+      });
+  };
+
+  componentDidMount() {
+    this.fetchData();
+  }
+
+  render() {
+    const { isLoading, cache } = this.state;
+    console.log(isLoading);
+
+    const Content = () => {
+      return isLoading ? (
+        <ActivityIndicator
+          style={styles.activityWrapper}
+          size="large"
+          color="#E62341"
+        />
+      ) : (
+        cache.map(child => (
+          <Card
+            key={child.id}
+            id={child.id}
+            title={child.title}
+            type={child.type}
+            image={child.image}
+            videoId={child.videoId}
+            date={child.date}
+            videoUrl={child.videoUrl}
+          />
+        ))
+      );
+    };
+
+    return (
       <>
         <View style={styles.rowContainer}>
-          <Text style={styles.categoryTitle}>
-            SAMENVATTINGEN
-          </Text>
+          <Text style={styles.categoryTitle}>SAMENVATTINGEN</Text>
           <ScrollView
             onScroll={this.onScroll()}
             keyboardShouldPersistTaps="always"
@@ -122,7 +123,7 @@ export default class RowVideo extends React.Component {
             horizontal={true}
             showsHorizontalScrollIndicator={false}
           >
-          <Content />
+            <Content />
           </ScrollView>
         </View>
       </>
