@@ -43,7 +43,7 @@ export default class RowVideo extends React.Component {
   };
 
   fetchData = () => {
-    const videoUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/ondemand?page=1&per_page=50`;
+    const videoUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/ondemand?page=1`;
 
     axios
       .get(videoUrl)

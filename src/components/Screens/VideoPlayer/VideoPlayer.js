@@ -54,6 +54,7 @@ class VideoPlayer extends Component {
     header: null
   };
 
+  // TODO: add backbutton eventType = "back"
   _enableTVEventHandler() {
     this._tvEventHandler = new TVEventHandler();
     this._tvEventHandler.enable(this, (cmp, evt) => {
