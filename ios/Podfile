@@ -30,6 +30,10 @@ target 'tvOS' do
 
   use_native_modules!
 
+  pod 'react-native-video', :path => '../node_modules/react-native-video'
+
+  pod 'RNScreens', :path => '../node_modules/react-native-screens'
+
   target 'tvOSTests' do
     inherit! :search_paths
     # Pods for testing

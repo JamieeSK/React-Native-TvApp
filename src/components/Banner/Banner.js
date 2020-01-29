@@ -1,146 +1,101 @@
-import React, { Fragment, Children } from 'react';
-import {
-    View,
-    Text,
-    Image,
-    TouchableHighlight,
-} from 'react-native';
+import React, { Fragment, Children } from "react";
+import { View, Text, Image, TouchableHighlight } from "react-native";
+import axios from "axios";
 
 import styles from "./banner.scss";
 
 export default class Banner extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            isLoading: true,
-            cache: [],
-        };
+    this.state = {
+      isLoading: true,
+      cache: []
+    };
 
-        this.onPress = this.onPress.bind(this);
-        this.onSelect = this.onSelect.bind(this);
-        this.onExit = this.onExit.bind(this);
-    }
+    this.onPress = this.onPress.bind(this);
+    this.onSelect = this.onSelect.bind(this);
+    this.onExit = this.onExit.bind(this);
+  }
 
-    fetchData = () => {
-      //* DAADWERKELIJKE LINK  
-      // const liveUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/live`;
-      
-        //* TEST LINK!
-        const liveUrl = `https://acceptatie.sportnoord.nl/wp-json/wp/v2/sn-match/live`;
+  fetchData = () => {
+    //* DAADWERKELIJKE LINK
+    const liveUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/live`;
 
-        axios
-          .get(liveUrl)
-          .then(res => {
-            const cache = res.data;
-            const data = [];
-    
-            cache.forEach(element => {
-              let video = {
-                id: element.id,
-                title: element.title.rendered,
-                type: element.match_sport,
-                image: element.featured_image.medium_large,
-                videoId: getId(element.videos[0].video),
-                date: element.match_dates.start,
-                video: element.videos[0],
-                videoParts: video.split("src=\""),
-                videoUrl: videoParts[1].split("?"),               
-              };
-    
-              data.push(video);
-            });
-    
-            this.setState({
-              cache: data,
-              isLoading: true
-            });
-          })
-          .catch(error => {
-            if (error.response) {
-              console.log(error.responderEnd);
-            }
-          });
-    }
+    //* TEST LINK!
+    // const liveUrl = `https://acceptatie.sportnoord.nl/wp-json/wp/v2/sn-match/live`;
 
-    onPress = () => {
-        console.log('onPress Banner');
-    }
+    axios
+      .get(liveUrl)
+      .then(res => {
+        const cache = res.data;
+        const data = [];
 
-    onSelect = () => {
-        console.log('#onSelect');
-        this.setState({ isSelected: true });
-    }
+        this.setState({
+          cache: data,
+          isLoading: true
+        });
+      })
+      .catch(error => {
+        if (error.response) {
+          console.log(error.responderEnd);
+        }
+      });
+  };
 
-    onExit = () => {
-        console.log('#onExit');
-        this.setState({ isSelected: false });
-    }
+  onPress = () => {
+    console.log("onPress Banner");
+  };
 
-    componentDidMount() {
-    }
+  onSelect = () => {
+    console.log("#onSelect");
+    this.setState({ isSelected: true });
+  };
 
-    render() {
-        const { isLoading, cache, onPress } = this.state;
-        console.log("Banner: " + isLoading);
+  onExit = () => {
+    console.log("#onExit");
+    this.setState({ isSelected: false });
+  };
 
+  componentDidMount() {
+    this.fetchData();
+  }
 
-        //FIXME: Banner -  //! LET OP! MOET NOG GETEST WORDEN!
-        const Content = () => {
-            return isLoading ? (
-              // <Text style={styles.errorText}>
-                // {"{"}LOADING...{"}"}
-              // </Text>
+  render() {
+    const { isLoading, cache, onPress } = this.state;
+    console.log("Banner: " + isLoading);
 
-                <View>
-                  <TouchableHighlight>
-                    <Image 
-                      source={require("../img/SPORTNOORD_logo_RGB_diap.png")}
-                    ></Image>
-                  </TouchableHighlight>
-                </View>
+    //FIXME: Banner -  //! LET OP! MOET NOG GETEST WORDEN!
+    const Content = () => {
+      return isLoading ? (
+        <View>
+          <TouchableHighlight>
+            <Text>NOT ONLINE</Text>
+          </TouchableHighlight>
+        </View>
+      ) : (
+        <View>
+          <TouchableHighlight onPress={() => this.fetchData()}>
+            <Text>ONLINE...</Text>
+          </TouchableHighlight>
+        </View>
+      );
+    };
 
-
-            ) : (
-              cache.map(child => (
-                // <View
-                //   key={child.id}
-                //   id={child.id}
-                //   title={child.title}
-                //   type={child.type}
-                //   image={child.image}
-                //   videoId={child.videoId}
-                //   date={child.date}
-                //   videoUrl={child.videoUrl}
-                // />
-                <View>
-                  <TouchableHighlight
-                    // onPress={() => this.onPress}
-                    
-                  >
-                    {/* <View image={child.image}></View> */}
-                    <Image source={require("../img/screenshot.png")}></Image>
-                  </TouchableHighlight>
-                </View>
-                
-              ))
-            );
-          };
-
-        return (
-            <>
-                <View style={styles.bannerContainer}>
-                    <View style={styles.bannerContainer}>
-                        {/* <Image style={styles.bannerPic} source={require('../img/test.jpeg')}></Image> */}
-                        <Content />
-                        {/* <Image styles={styles.bannerPic}></Image> */}
-                        {/* <View style={styles.bannerTest}> */}
-                            {/* <Image style={styles.bannerFiets} source={require('../img/screenshot.png')}></Image> */}
-                            {/* <Text style={styles.textTest}>{'{'}Catogorieën{'}'}</Text> */}
-                        {/* </View> */}
-                    </View>
-                </View>
-            </>
-        );
-    }
+    return (
+      <>
+        <View style={styles.bannerContainer}>
+          <View style={styles.bannerContainer}>
+            {/* <Image style={styles.bannerPic} source={require('../img/test.jpeg')}></Image> */}
+            <Content />
+            {/* <Image styles={styles.bannerPic}></Image> */}
+            {/* <View style={styles.bannerTest}> */}
+            {/* <Image style={styles.bannerFiets} source={require('../img/screenshot.png')}></Image> */}
+            {/* <Text style={styles.textTest}>{'{'}Catogorieën{'}'}</Text> */}
+            {/* </View> */}
+          </View>
+        </View>
+      </>
+    );
+  }
 }

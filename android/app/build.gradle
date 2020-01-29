@@ -189,6 +189,8 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-screens')
+    implementation project(':react-native-video')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
     // Native Stack Navigation

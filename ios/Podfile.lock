@@ -96,7 +96,7 @@ PODS:
     - React-fishhook (= 0.60.4-6)
   - RNGestureHandler (1.5.3):
     - React
-  - RNScreens (2.0.0-alpha.31):
+  - RNScreens (2.0.0-alpha.32):
     - React
   - yoga (0.60.4-6.React)
 
@@ -208,9 +208,9 @@ SPEC CHECKSUMS:
   React-RCTVibration: abcde2265319ec483845e13c101839a2c20fd497
   React-RCTWebSocket: d3b4e26e23234fc104eab8a437cc8a198d747f92
   RNGestureHandler: 02905abe54e1f6e59c081a10b4bd689721e17aa6
-  RNScreens: 5fcc247984ffae92240e7e8e39e1e19c0a0f6f67
+  RNScreens: a55364dc1833101f836cee70975ce1fea615a12f
   yoga: bc32a6681c6e5aa51b633c72ab67ac4a02aad409
 
-PODFILE CHECKSUM: f52b2f80991cef056aa51af54f7613dcbf0f1da8
+PODFILE CHECKSUM: fcf2801086db89896a09a803712bbe3d5c0dc356
 
 COCOAPODS: 1.8.4
