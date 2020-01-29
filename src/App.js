@@ -11,6 +11,8 @@ import {
 //Import react-native-screens to change screens
 import { enableScreens } from 'react-native-screens';
 
+console.disableYellowBox = true;
+
 enableScreens();
 
 const MainScreenNav = createStackNavigator({
