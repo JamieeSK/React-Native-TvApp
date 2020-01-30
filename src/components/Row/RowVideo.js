@@ -39,11 +39,12 @@ export default class RowVideo extends React.Component {
   }
 
   onScroll = () => {
-    console.log("#onScroll");
+    // console.log("#onScroll");
   };
 
   fetchData = () => {
-    const videoUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/ondemand?page=1`;
+    // const videoUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/ondemand?page=1`;
+    const videoUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/ondemand?page=1&per_page=50`;
 
     axios
       .get(videoUrl)
@@ -85,7 +86,6 @@ export default class RowVideo extends React.Component {
 
   render() {
     const { isLoading, cache } = this.state;
-    console.log(isLoading);
 
     const Content = () => {
       return isLoading ? (

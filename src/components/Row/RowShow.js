@@ -39,7 +39,7 @@ export default class RowShow extends React.Component {
   }
 
   onScroll = () => {
-    console.log("#onScroll");
+    // console.log("#onScroll");
   };
 
   fetchData = () => {
@@ -65,6 +65,7 @@ export default class RowShow extends React.Component {
           };
 
           data.push(video);
+          
         });
 
         this.setState({
@@ -85,10 +86,10 @@ export default class RowShow extends React.Component {
 
   render() {
     const { isLoading, cache } = this.state;
-    console.log(isLoading);
+
 
     const Content = () => {
-      return isLoading ? (
+        return isLoading ? (
         <ActivityIndicator
           style={styles.activityContainer}
           size="large"
