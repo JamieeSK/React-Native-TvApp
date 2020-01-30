@@ -2,27 +2,39 @@
     margin-right: auto;
     height: 220px;
     margin-left:  auto;
-    position: relative;
+    // position: relative;
     background-color: #050505;
-    width: 50%;
+    width: 100%;
+}
+
+
+.banner_image {
+    margin-left: 4%;
+    height: 220;
+    width: auto;
 }
 
 .bannerText {
+    margin-left: 5%;
     color: white;
+    font-size: 60px;
+    // margin-right: auto;
+    align-self: center;
+
 }
 
-.bannerContainer {
-    width: 50%;
-    line-height: 150%;
-    float: left;
-    overflow: hidden;
-    white-space: normal;
-    display: flex;
-    flex: 1;
-    // align-items: row
-    flex-direction: row;
-    // display: inline-block;
-}
+// .bannerContainer {
+//     width: 50%;
+//     line-height: 150%;
+//     float: left;
+//     overflow: hidden;
+//     white-space: normal;
+//     display: flex;
+//     flex: 1;
+//     // align-items: row
+//     flex-direction: row;
+//     // display: inline-block;
+// }
 
 .bannerPic {
     margin-top: 15px;

@@ -1,32 +1,42 @@
 import React, { Fragment, Children } from "react";
-import { View, Text, Image, TouchableHighlight } from "react-native";
+import { View, Text, Image, TouchableHighlight, ActivityIndicator } from "react-native";
 import axios from "axios";
 
 import styles from "./banner.scss";
 
-import CardBanner from "./CardBanner";
+const getId = link => {
+  return link.split("/c/")[1].replace(".js", "");
+};
 
-export default class Banner extends React.Component {
+import { withNavigation } from 'react-navigation';
+
+class Banner extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       isLoading: true,
-      isLive: false,
-      cache: []
+      isLive: true,
+      cache: [],
+      navigation: this.props.navigation,
+
     };
 
     this.onPress = this.onPress.bind(this);
     this.onSelect = this.onSelect.bind(this);
     this.onExit = this.onExit.bind(this);
+    // this.navigate = this.navigate.bind(this);
+
+
+    // this.fetchData = this.fetchData.bind(this);
   }
 
   fetchData = () => {
     //* DAADWERKELIJKE LINK
-    // const liveUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/live`;
+    const liveUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/live`;
 
-    //* TEST LINK!
-    const liveUrl = `https://acceptatie.sportnoord.nl/wp-json/wp/v2/sn-match/live`;
+    // * TEST LINK!
+    // const liveUrl = `https://acceptatie.sportnoord.nl/wp-json/wp/v2/sn-match/live`;
     // length= 1
 
     axios
@@ -34,21 +44,11 @@ export default class Banner extends React.Component {
       .then(res => {
         const cache = res.data;
         const data = [];
-        
-
-        this.setState({
-          cache: data,
-          isLoading: true
-        });
-        console.log(cache);
-        console.log(cache.length);
-        console.log("cache[]");
-        
-        console.log(cache[0]);
 
         if (cache.length === 1) {
           this.setState ({
             isLive: true,
+
           });
 
           cache.forEach(element => {
@@ -57,23 +57,33 @@ export default class Banner extends React.Component {
               title: element.title.rendered,
               type: element.match_sport,
               image: element.featured_image.medium_large,
-              videoId: getId(element.videos[0].video),
-              date: element.match_dates.start,
-              video: element.videos[0],
-              videoParts: video.split("src=\""),
-              videoUrl: videoParts[1].split("?"),               
+              // videoId: getId(element.videos[0].video),
+              // date: element.match_dates.start,
+              // video: element.videos[0],
+              // videoParts: video.split("src=\""),
+              // videoUrl: videoParts[1].split("?"),               
             };
-  
+
             data.push(video);
+
           });
        
-        } else if (cache.length === 0) {
+        } 
+        else if (cache.length === 0) {
           this.setState ({
             isLive: false,
           });
         }
 
+        this.setState({
+          cache: data,
+          isLoading: false,
+        });
+        console.log("data");
+        console.log(data);
+
       })
+      
       .catch(error => {
         if (error.response) {
           console.log(error.responderEnd);
@@ -83,6 +93,13 @@ export default class Banner extends React.Component {
 
   onPress = () => {
     console.log("onPress Banner");
+    const { cache } = this.state;
+    this.props.navigation.navigate("VideoPlayer", 
+    {
+        // video: videoUrl, 
+        title: cache[0].title,
+        date: cache[0].date
+    });
   };
 
   onSelect = () => {
@@ -100,56 +117,42 @@ export default class Banner extends React.Component {
   }
 
   render() {
-    const { isLoading, cache, onPress, isLive} = this.state;
-    console.log("Banner: " + isLoading);
-    console.log("IsLive: " + isLive);
+    const { isLoading, cache, isLive} = this.state;
 
     //FIXME: Banner -  //! LET OP! MOET NOG GETEST WORDEN!
     const Content = () => {
-      return isLive ? (
-        // cache.map(child => (
-        // <CardBanner
-        //     key={child.id}
-        //     id={child.id}
-        //     title={child.title}
-        //     type={child.type}
-        //     image={child.image}
-        //     videoId={child.videoId}
-        //     date={child.date}
-        //     videoUrl={child.videoUrl}
-        //   />
-        // ))
 
+      return isLoading ? (         
         <View>
-          <TouchableHighlight onPress={() => this.fetchData()}>
-            <Text style={styles.bannerText}>ONLINE...</Text>
-          </TouchableHighlight>
+          <Text style={styles.bannerText}>ONLINE... </Text>
         </View>
 
       ) : (
+
         <View>
-          <TouchableHighlight>
-            <Text style={styles.bannerText}>NOT ONLINE</Text>
-          </TouchableHighlight>
+          {isLive ? 
+            <TouchableHighlight
+              onPress={() => this.onPress()}
+            >
+              <Text style={styles.bannerText}>LIVE</Text>
+            </TouchableHighlight>
+            
+          : 
+            <Image style={styles.banner_image} source={require("../img/offlineBanner.png")}></Image>
+          }
         </View>
       );
     };
 
     return (
       <>
+      
         <View style={styles.bannerContainer}>
-          <View style={styles.bannerContainer}>
-            {/* <Image style={styles.bannerPic} source={require('../img/test.jpeg')}></Image> */}
-            {/* <Text style={styles.bannerText}>HALLO</Text> */}
             <Content />
-            {/* <Image styles={styles.bannerPic}></Image> */}
-            {/* <View style={styles.bannerTest}> */}
-            {/* <Image style={styles.bannerFiets} source={require('../img/screenshot.png')}></Image> */}
-            {/* <Text style={styles.textTest}>{'{'}Catogorieën{'}'}</Text> */}
-            {/* </View> */}
-          </View>
         </View>
       </>
     );
   }
 }
+
+export default withNavigation(Banner);
