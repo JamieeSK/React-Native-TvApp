@@ -11,7 +11,9 @@ class Menu extends React.Component {
     super(props);
 
     this.state = {
-      isSelected: false
+      isSelected: false,
+      navigation: this.props.navigation,
+
     };
 
     this.onPress = this.onPress.bind(this);
@@ -20,7 +22,14 @@ class Menu extends React.Component {
     this.onSelect = this.onSelect.bind(this);
 
     this.click = this.click.bind(this);
+
+    this.navigate = this.navigate.bind(this);
+
   }
+
+  navigate = () => {
+    console.log("navigate");
+}
 
   onSelect = () => {
     console.log("#onSelect");
@@ -29,6 +38,7 @@ class Menu extends React.Component {
 
   onPress = () => {
     console.log("#onPress");
+    this.props.navigation.navigate("Searchpage") 
   };
 
   onSelect = () => {
@@ -71,10 +81,10 @@ class Menu extends React.Component {
           }
         >
           {/* "Zoeken" */}
-          <TouchableHighlight
+          {/* <TouchableHighlight
             onShowUnderlay={() => this.onSelect()}
             onHideUnderlay={() => this.onExit()}
-            onPress={() => this.click()}
+            onPress={() => this.onPress()}
             style={styles.menu}
           >
             <View style={styles.menuContent}>
@@ -84,9 +94,10 @@ class Menu extends React.Component {
               ></Image>
               {zoeken}
             </View>
-          </TouchableHighlight>
+          </TouchableHighlight> */}
+
           {/* "Samenvattingen" */}
-          <TouchableHighlight
+          {/* <TouchableHighlight
             onShowUnderlay={() => this.onSelect()}
             onHideUnderlay={() => this.onExit()}
             onPress={() => this.click()}
@@ -99,9 +110,10 @@ class Menu extends React.Component {
               ></Image>
               {samenvattingen}
             </View>
-          </TouchableHighlight>
+          </TouchableHighlight> */}
+
           {/* "Clubs" */}
-          <TouchableHighlight
+          {/* <TouchableHighlight
             onShowUnderlay={() => this.onSelect()}
             onHideUnderlay={() => this.onExit()}
             onPress={() => this.click()}
@@ -113,9 +125,10 @@ class Menu extends React.Component {
               ></Image>
               {clubs}
             </View>
-          </TouchableHighlight>
+          </TouchableHighlight> */}
+
           {/* "Shows" */}
-          <TouchableHighlight
+          {/* <TouchableHighlight
             onShowUnderlay={() => this.onSelect()}
             onHideUnderlay={() => this.onExit()}
             onPress={() => this.click()}
@@ -127,7 +140,7 @@ class Menu extends React.Component {
               ></Image>
               {shows}
             </View>
-          </TouchableHighlight>
+          </TouchableHighlight> */}
         </View>
       </>
     );
