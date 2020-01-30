@@ -54,7 +54,7 @@ class VideoPlayer extends Component {
     header: null
   };
 
-  // TODO: add backbutton eventType = "back"
+  // TODO: add backbutton eventType = "back";
   _enableTVEventHandler() {
     this._tvEventHandler = new TVEventHandler();
     this._tvEventHandler.enable(this, (cmp, evt) => {
@@ -63,8 +63,8 @@ class VideoPlayer extends Component {
         if (this.state.currentTime + 5 < this.state.duration) {
           this.onSeek(this.state.currentTime + 5);
         }
-      } else if (evt && evt.eventType === "up") {
-        console.log("up");
+      } else if (evt && evt.eventType === "back") {
+        console.log("back");
         this.props.navigation.navigate("Homepage");
       } else if (evt && evt.eventType === "left") {
         console.log("left");

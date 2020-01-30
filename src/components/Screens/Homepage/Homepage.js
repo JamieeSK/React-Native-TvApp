@@ -41,7 +41,7 @@ export default class Homepage extends React.Component {
                     <Menu />
 
                     <ScrollView style={styles.container}>
-                        <View>        
+                        <View>
                             {/* The Header of the App that includes the Logo. */}
                             < Header />
                             {/* Build the Banner of the liveshow */}
