@@ -3,12 +3,14 @@ import axios from "axios";
 import {
   View,
   ScrollView,
+  SafeAreaView,
+  FlatList,
   Text,
   Platform,
   ActivityIndicator
 } from "react-native";
 
-import CardShow from "./Card/CardShow";
+import Card from "./Card/CardShow";
 
 import styles from "./row.scss";
 
@@ -65,7 +67,6 @@ export default class RowShow extends React.Component {
           };
 
           data.push(video);
-          
         });
 
         this.setState({
@@ -87,9 +88,8 @@ export default class RowShow extends React.Component {
   render() {
     const { isLoading, cache } = this.state;
 
-
     const Content = () => {
-        return isLoading ? (
+      return isLoading ? (
         <ActivityIndicator
           style={styles.activityContainer}
           size="large"
@@ -113,20 +113,36 @@ export default class RowShow extends React.Component {
 
     return (
       <>
-        <View style={styles.rowContainer}>
+        <SafeAreaView style={styles.rowContainer}>
           <Text style={styles.categoryTitle}>SHOWS</Text>
-          <ScrollView
-            onScroll={this.onScroll()}
-            keyboardShouldPersistTaps="always"
-            keyboardDismissMode="on-drag"
-            snapToAlignment="start"
-            contentInsetAdjustmentBehavior="automatic"
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-          >
-            <Content />
-          </ScrollView>
-        </View>
+          {isLoading ? (
+            <ActivityIndicator
+              style={styles.activityWrapper}
+              size="large"
+              color="#E62341"
+            />
+          ) : (
+            <FlatList
+              horizontal
+              data={cache}
+              renderItem={({ item }) => (
+                <Card
+                  key={item.id}
+                  id={item.id}
+                  title={item.title}
+                  type={item.type}
+                  image={item.image}
+                  videoId={item.videoId}
+                  date={item.date}
+                  videoUrl={item.videoUrl}
+                />
+              )}
+              keyExtractor={item => item.id}
+              keyboardShouldPersistTaps="always"
+              keyboardDismissMode="on-drag"
+            />
+          )}
+        </SafeAreaView>
       </>
     );
   }

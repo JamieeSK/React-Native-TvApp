@@ -2,7 +2,9 @@ import React, { Fragment } from "react";
 import axios from "axios";
 import {
   View,
+  SafeAreaView,
   ScrollView,
+  FlatList,
   Text,
   Platform,
   ActivityIndicator
@@ -43,7 +45,6 @@ export default class RowVideo extends React.Component {
   };
 
   fetchData = () => {
-    // const videoUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/ondemand?page=1`;
     const videoUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/ondemand?page=1&per_page=15`;
 
     axios
@@ -87,45 +88,38 @@ export default class RowVideo extends React.Component {
   render() {
     const { isLoading, cache } = this.state;
 
-    const Content = () => {
-      return isLoading ? (
-        <ActivityIndicator
-          style={styles.activityWrapper}
-          size="large"
-          color="#E62341"
-        />
-      ) : (
-        cache.map(child => (
-          <Card
-            key={child.id}
-            id={child.id}
-            title={child.title}
-            type={child.type}
-            image={child.image}
-            videoId={child.videoId}
-            date={child.date}
-            videoUrl={child.videoUrl}
-          />
-        ))
-      );
-    };
-
     return (
       <>
-        <View style={styles.rowContainer}>
+        <SafeAreaView style={styles.rowContainer}>
           <Text style={styles.categoryTitle}>SAMENVATTINGEN</Text>
-          <ScrollView
-            onScroll={this.onScroll()}
-            keyboardShouldPersistTaps="always"
-            keyboardDismissMode="on-drag"
-            snapToAlignment="start"
-            contentInsetAdjustmentBehavior="automatic"
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-          >
-            <Content />
-          </ScrollView>
-        </View>
+          {isLoading ? (
+            <ActivityIndicator
+              style={styles.activityWrapper}
+              size="large"
+              color="#E62341"
+            />
+          ) : (
+            <FlatList
+              horizontal
+              data={cache}
+              renderItem={({ item }) => (
+                <Card
+                  key={item.id}
+                  id={item.id}
+                  title={item.title}
+                  type={item.type}
+                  image={item.image}
+                  videoId={item.videoId}
+                  date={item.date}
+                  videoUrl={item.videoUrl}
+                />
+              )}
+              keyExtractor={item => item.id}
+              keyboardShouldPersistTaps="always"
+              keyboardDismissMode="on-drag"
+            />
+          )}
+        </SafeAreaView>
       </>
     );
   }
