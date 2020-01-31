@@ -43,7 +43,7 @@ export default class RowShow extends React.Component {
   };
 
   fetchData = () => {
-    const showUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-show?page=1&per_page=50`;
+    const showUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-show?page=1&per_page=15`;
 
     axios
       .get(showUrl)
