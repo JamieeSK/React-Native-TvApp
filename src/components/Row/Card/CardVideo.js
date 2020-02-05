@@ -35,11 +35,9 @@ class CardVideo extends React.Component {
     }
 
     navigate = () => {
-        console.log("navigate");
     }
 
     onPress = () => {
-        console.log('#onPress');
         const { videoUrl, title, date } = this.state;
         this.props.navigation.navigate("VideoPlayer", 
         {
@@ -50,12 +48,10 @@ class CardVideo extends React.Component {
     }
 
     onSelect = () => {
-        console.log('#onSelect');
         this.setState({ isSelected: true });
     }
 
     onExit = () => {
-        console.log('#onExit');
         this.setState({ isSelected: false });
     }
 

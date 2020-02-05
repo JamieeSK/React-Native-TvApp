@@ -35,13 +35,11 @@ class CardShow extends React.Component {
         this.navigate = this.navigate.bind(this);
     }
 
+    
     navigate = () => {
-        console.log("navigate");
-
     }
 
     onPress = () => {
-        console.log('#onPress');
         const { videoUrl, title, date } = this.state;
         this.props.navigation.navigate("VideoPlayer",
             {
@@ -52,12 +50,10 @@ class CardShow extends React.Component {
     }
 
     onSelect = () => {
-        console.log('#onSelect');
         this.setState({ isSelected: true });
     }
 
     onExit = () => {
-        console.log('#onExit');
         this.setState({ isSelected: false });
     }
 

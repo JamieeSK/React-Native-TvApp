@@ -45,7 +45,8 @@ export default class Homepage extends React.Component {
                             {/* The Header of the App that includes the Logo. */}
                             < Header />
                             {/* Build the Banner of the liveshow */}
-                            < Banner />
+                            {/* < Banner /> */}
+                            
                             {/* Build the Row holding the Cards. */}
                             < RowVideo />
                             < RowShow />

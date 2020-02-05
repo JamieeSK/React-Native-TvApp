@@ -28,31 +28,25 @@ class Menu extends React.Component {
   }
 
   navigate = () => {
-    console.log("navigate");
-}
+  }
 
   onSelect = () => {
-    console.log("#onSelect");
     this.setState({ isSelected: true });
   };
 
   onPress = () => {
-    console.log("#onPress");
-    this.props.navigation.navigate("Searchpage") 
+    this.props.navigation.navigate("Homepage") 
   };
 
   onSelect = () => {
-    console.log("#onSelect");
     this.setState({ isSelected: true });
   };
 
   onExit = () => {
-    console.log("#onExit");
     this.setState({ isSelected: false });
   };
 
   click = () => {
-    console.log("Vergrootglas");
   };
 
   componentDidMount() {}
@@ -65,21 +59,40 @@ class Menu extends React.Component {
       samenvattingen = <Text style={styles.menuText}>Samenvattingen</Text>;
       clubs = <Text style={styles.menuText}>Clubs</Text>;
       shows = <Text style={styles.menuText}>Shows</Text>;
+      // home = <Text style={styles.menuText}>Home</Text>;
     } else {
       zoeken = <Text style={styles.menuText}></Text>;
       samenvattingen = <Text style={styles.menuText}></Text>;
       clubs = <Text style={styles.menuText}></Text>;
       shows = <Text style={styles.menuText}></Text>;
+      // home = <Text style={styles.menuText}></Text>;
     }
 
     return (
       <>
         <View
-          style={
-            ([styles.menuContainer],
-            isSelected ? styles.menuContainer__active : styles.menuContainer)
-          }
+        style={styles.menuContainer}
+          // style={
+          //   ([styles.menuContainer],
+          //   isSelected ? styles.menuContainer__active : styles.menuContainer)
+          // }
         >
+          {/* Home */}
+          <TouchableHighlight
+            onShowUnderlay={() => this.onSelect()}
+            onHideUnderlay={() => this.onExit()}
+            onPress={() => this.onPress()}
+            style={styles.menuHome}
+          >
+            <View style={styles.menuContent}>
+              <Image
+                style={styles.menuImg}
+                // source={require("../img/home.png")}
+              ></Image>
+              {/* {home} */}
+            </View>
+          </TouchableHighlight>
+
           {/* "Zoeken" */}
           {/* <TouchableHighlight
             onShowUnderlay={() => this.onSelect()}

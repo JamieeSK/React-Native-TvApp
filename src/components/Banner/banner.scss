@@ -2,39 +2,37 @@
     margin-right: auto;
     height: 220px;
     margin-left:  auto;
-    // position: relative;
     background-color: #050505;
     width: 100%;
 }
 
 
 .banner_image {
-    margin-left: 4%;
+    margin-left: 4.5%;
     height: 220;
     width: auto;
 }
 
-.bannerText {
+
+.banner_text {
+    margin-top: 0;
     margin-left: 5%;
     color: white;
     font-size: 60px;
-    // margin-right: auto;
     align-self: center;
+    z-index: 10;
+
+    &__klein {
+        margin-top: 0;
+        margin-left: 5%;
+        color: white;
+        font-size: 20px;
+        align-self: center;
+        position: absolute;
+        z-index: 10;
+    }
 
 }
-
-// .bannerContainer {
-//     width: 50%;
-//     line-height: 150%;
-//     float: left;
-//     overflow: hidden;
-//     white-space: normal;
-//     display: flex;
-//     flex: 1;
-//     // align-items: row
-//     flex-direction: row;
-//     // display: inline-block;
-// }
 
 .bannerPic {
     margin-top: 15px;
@@ -49,11 +47,7 @@
 }
 
 .bannerFiets {
-    // background-color: #003171;
     margin-top:15px;
-    // float: left;
     width: 50%;
     height: 100%;
-    // z-index: 100;
-   
 }
