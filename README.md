@@ -34,7 +34,7 @@ git checkout features/styling
 >Depending on the branch, install the following NPM dependecies:
 
 
-features/video
+features/styling
 
 ```bash
 npm install
