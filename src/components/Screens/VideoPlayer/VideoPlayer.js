@@ -24,8 +24,6 @@ import { withNavigation } from "react-navigation";
 // This does not work!!!!!
 // import styles from "app.css";
 
-//FIXME: //!Fix tvHandler. _enableTVEventHandler()
-
 var TVEventHandler = require("TVEventHandler");
 
 class VideoPlayer extends Component {

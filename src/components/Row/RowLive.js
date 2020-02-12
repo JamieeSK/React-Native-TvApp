@@ -8,8 +8,6 @@ import {
   ActivityIndicator
 } from "react-native";
 
-// import CardLive from "./Card/CardLive";
-
 import CardLive from "./Card/CardLive";
 import styles from "./row.scss";
 
