@@ -1,0 +1,53 @@
+.bannerContainer  {
+    margin-right: auto;
+    height: 220px;
+    margin-left:  auto;
+    background-color: #050505;
+    width: 100%;
+}
+
+
+.banner_image {
+    margin-left: 4.5%;
+    height: 220;
+    width: auto;
+}
+
+
+.banner_text {
+    margin-top: 0;
+    margin-left: 5%;
+    color: white;
+    font-size: 60px;
+    align-self: center;
+    z-index: 10;
+
+    &__klein {
+        margin-top: 0;
+        margin-left: 5%;
+        color: white;
+        font-size: 20px;
+        align-self: center;
+        position: absolute;
+        z-index: 10;
+    }
+
+}
+
+.bannerPic {
+    margin-top: 15px;
+    width: 60%;
+    height: 100%;
+}
+
+.textTest {
+    margin-top: 10px;
+    color: #ffffff;
+    font-size: 1.75rem;
+}
+
+.bannerFiets {
+    margin-top:15px;
+    width: 50%;
+    height: 100%;
+}

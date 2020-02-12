@@ -1,19 +1,36 @@
 @import '../../styles/variables';
 
 .rowContainer {
+    flex: 1;
     height: 450;
     margin-top: 20;
+    margin-left: 80px;
 }
 
 .categoryTitle {
-    font-size: 3.75rem;
+    font-size: 1.55rem;
     color: #ffffff;
-    padding-left: 65px;
+    // padding-left: 65px;
     margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+.rowText {
+    font-size: 2rem;
+    color: white;
+    // align-self: center;
 }
 
 .errorText {
     color: color(error);
     text-align: center;
     font-size: 32px;
+}
+
+.activityWrapper {
+    height: 100;
+    width: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }

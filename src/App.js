@@ -1,43 +1,37 @@
-import React, { Fragment } from 'react';
+//import Screens
+import Homepage from "../src/components/Screens/Homepage/Homepage";
+import VideoPlayer from "../src/components/Screens/VideoPlayer/VideoPlayer";
+import VideoPlayerLive from "../src/components/Screens/VideoPlayer/VideoplayerLive";
+import Searchpage from "../src/components/Screens/Searchpage/Searchpage";
+import Live from "../src/components/Screens/Live/Live";
+
 import {
-    Platform,
-    ScrollView,
-    View,
-    Text,
-    Dimensions,
-    StyleSheet,
-} from 'react-native';
+    createStackNavigator,
+    createSwitchNavigator,
+    createAppContainer,
+} from 'react-navigation';
+  
+//Import react-native-screens to change screens
+import { enableScreens } from 'react-native-screens';
 
-// Import the App Style.
-import styles from "./app.scss";
+//Hides warning
+console.disableYellowBox = true;
 
-// Import the Header Component.
-import Header from "./components/Header/Header";
-// Import the Header Row.
-import Row from "./components/Row/Row";
-// Import the Header Footer.
-import Footer from './components/Footer/Footer';
+enableScreens();
 
-// import Video from 'react-native-video';
+const MainScreenNav = createStackNavigator({
+    Homepage: { screen: Homepage },
+    VideoPlayer: { screen: VideoPlayer },
+    VideoPlayerLive: { screen: VideoPlayerLive },
+    Searchpage: { screen: Searchpage },
+    Live: { screen: Live },
+});
+  
+const App = createSwitchNavigator({
+    Home: { screen: MainScreenNav },
+},
+{
+    initialRouteName: 'Home',
+});
 
-export default class Home extends React.Component {
-    render() {
-
-        return (
-            <>
-                <Fragment>
-                    <ScrollView style={styles.container}>
-                        <View>
-                            {/* The Header of the App that includes the Logo, Card you select. */}
-                            < Header />
-                            {/* Build the Row holding the Cards. */}
-                            < Row />
-                            {/* The Footer of the Application, holding the socials, and other necessaries */}
-                            < Footer />
-                        </View>
-                    </ScrollView>
-                </Fragment>
-            </>
-        );
-    }
-}
+export default createAppContainer(App);
