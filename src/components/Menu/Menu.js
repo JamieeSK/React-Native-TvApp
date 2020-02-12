@@ -12,8 +12,7 @@ class Menu extends React.Component {
 
     this.state = {
       isSelected: false,
-      navigation: this.props.navigation,
-
+      navigation: this.props.navigation
     };
 
     this.onPress = this.onPress.bind(this);
@@ -24,18 +23,16 @@ class Menu extends React.Component {
     this.click = this.click.bind(this);
 
     this.navigate = this.navigate.bind(this);
-
   }
 
-  navigate = () => {
-  }
+  navigate = () => {};
 
   onSelect = () => {
     this.setState({ isSelected: true });
   };
 
   onPress = () => {
-    this.props.navigation.navigate("Homepage") 
+    this.props.navigation.navigate("Homepage");
   };
 
   onSelect = () => {
@@ -46,8 +43,7 @@ class Menu extends React.Component {
     this.setState({ isSelected: false });
   };
 
-  click = () => {
-  };
+  click = () => {};
 
   componentDidMount() {}
 
@@ -71,7 +67,7 @@ class Menu extends React.Component {
     return (
       <>
         <View
-        style={styles.menuContainer}
+          style={styles.menuContainer}
           // style={
           //   ([styles.menuContainer],
           //   isSelected ? styles.menuContainer__active : styles.menuContainer)

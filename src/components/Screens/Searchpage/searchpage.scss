@@ -1,14 +1,13 @@
 @import "../../../styles/variables.scss";
 
 .container {
-    flex: 1;
-    background-color: color(background);
+  flex: 1;
+  background-color: color(background);
 }
 
 .input {
-    height: 40px;
-    // border-color: "grey";
-    border: 1px solid grey;
-    // color: white;
-
+  height: 40px;
+  // border-color: "grey";
+  border: 1px solid grey;
+  // color: white;
 }

@@ -24,7 +24,6 @@ import { withNavigation } from "react-navigation";
 // This does not work!!!!!
 // import styles from "app.css";
 
-
 var TVEventHandler = require("TVEventHandler");
 
 class VideoPlayerLive extends Component {
@@ -58,31 +57,25 @@ class VideoPlayerLive extends Component {
     this._tvEventHandler = new TVEventHandler();
     this._tvEventHandler.enable(this, (cmp, evt) => {
       if (evt && evt.eventType === "right") {
-        console.log("right");
         if (this.state.currentTime + 5 < this.state.duration) {
           this.onSeek(this.state.currentTime + 5);
         }
       } else if (evt && evt.eventType === "back") {
-        console.log("back");
         this.props.navigation.navigate("Homepage");
       } else if (evt && evt.eventType === "left") {
-        console.log("left");
         if (this.state.currentTime - 5 > 0) {
           this.onRewind(this.state.currentTime);
         } else {
           this.onSeek(0);
         }
       } else if (evt && evt.eventType === "down") {
-        console.log("down");
       } else if (evt && evt.eventType === "select") {
-        console.log("select");
         if (this.state.paused) {
           this.onPaused(PLAYER_STATES.PLAYING);
         } else {
           this.onPaused(PLAYER_STATES.PAUSED);
         }
       } else if (evt && evt.eventType === "playPause") {
-        console.log("pause and play");
         if (this.state.paused) {
           this.onPaused(PLAYER_STATES.PLAYING);
         } else {
@@ -110,7 +103,6 @@ class VideoPlayerLive extends Component {
   onSeek = seek => {
     //Handler for change in seekbar
     this.videoPlayer.seek(seek);
-    // console.log(seek);
   };
 
   onRewind = seek => {
@@ -118,8 +110,6 @@ class VideoPlayerLive extends Component {
   };
 
   onPaused = playerState => {
-    console.log(this.state.paused);
-
     //Handler for Video Pause
     this.setState({
       paused: !this.state.paused,

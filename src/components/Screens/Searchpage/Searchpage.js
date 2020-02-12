@@ -10,7 +10,7 @@ import {
   Image,
   Slider,
   TextInput,
-  Keyboard,
+  Keyboard
 } from "react-native";
 
 import styles from "../Searchpage/searchpage.scss";
@@ -18,20 +18,19 @@ import styles from "../Searchpage/searchpage.scss";
 import { withNavigation } from "react-navigation";
 
 class Searchpage extends Component {
-
-      //Screen navigation styling
-//   static navigationOptions = {
-//     header: null
-//   };
+  //Screen navigation styling
+  //   static navigationOptions = {
+  //     header: null
+  //   };
 
   componentDidMount() {
     this.keyboardDidShowListener = Keyboard.addListener(
-      'keyboardDidShow',
-      this._keyboardDidShow,
+      "keyboardDidShow",
+      this._keyboardDidShow
     );
     this.keyboardDidHideListener = Keyboard.addListener(
-      'keyboardDidHide',
-      this._keyboardDidHide,
+      "keyboardDidHide",
+      this._keyboardDidHide
     );
   }
 
@@ -41,30 +40,25 @@ class Searchpage extends Component {
   }
 
   _keyboardDidShow() {
-    alert('Keyboard Shown');
+    alert("Keyboard Shown");
   }
 
   _keyboardDidHide() {
-    alert('Keyboard Hidden');
+    alert("Keyboard Hidden");
   }
 
-    render() {
-
-    
-        return (
-            <View style={styles.container}>
-                <Text>SEARCH</Text>
-                <TextInput
-                 style={styles.input}
-                 placeholder={"HOI"}
-                 onSubmitEditing={Keyboard.dismiss}
-                 />
-            </View>
-                
-        );
-    
-    }
-
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>SEARCH</Text>
+        <TextInput
+          style={styles.input}
+          placeholder={"HOI"}
+          onSubmitEditing={Keyboard.dismiss}
+        />
+      </View>
+    );
+  }
 }
 
 export default withNavigation(Searchpage);

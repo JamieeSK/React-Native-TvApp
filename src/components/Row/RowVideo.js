@@ -40,9 +40,7 @@ export default class RowVideo extends React.Component {
     this.fetchData = this.fetchData.bind(this);
   }
 
-  onScroll = () => {
-    // console.log("#onScroll");
-  };
+  onScroll = () => {};
 
   fetchData = () => {
     const videoUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/ondemand?page=1&per_page=15`;

@@ -38,9 +38,7 @@ export default class RowShow extends React.Component {
     this.fetchData = this.fetchData.bind(this);
   }
 
-  onScroll = () => {
-    // console.log("#onScroll");
-  };
+  onScroll = () => {};
 
   fetchData = () => {
     const showUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-show?page=1&per_page=50`;
@@ -64,7 +62,6 @@ export default class RowShow extends React.Component {
           };
 
           data.push(video);
-          
         });
 
         this.setState({
@@ -86,9 +83,8 @@ export default class RowShow extends React.Component {
   render() {
     const { isLoading, cache } = this.state;
 
-
     const Content = () => {
-        return isLoading ? (
+      return isLoading ? (
         <ActivityIndicator
           style={styles.activityContainer}
           size="large"

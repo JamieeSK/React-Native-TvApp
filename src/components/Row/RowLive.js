@@ -33,7 +33,7 @@ export default class RowLive extends React.Component {
     this.state = {
       isLoading: true,
       cache: [],
-      isLive: false,
+      isLive: false
     };
 
     this.onScroll = this.onScroll.bind(this);
@@ -42,159 +42,120 @@ export default class RowLive extends React.Component {
     this.split = this.split.bind(this);
   }
 
-  onScroll = () => {
-    // console.log("#onScroll");
-  };
-
+  onScroll = () => {};
 
   fetchData = () => {
-    //* DAADWERKELIJKE LINK
+    //* PRODUCTION URL
     const liveUrl = `https://sportnoord.nl/wp-json/wp/v2/sn-match/live`;
 
-    // * TEST LINK!
+    // * DEVELOPMENT TESTING URL!
     // const liveUrl = `https://acceptatie.sportnoord.nl/wp-json/wp/v2/sn-match/live`;
-    // length= 1
 
-  
     axios
       .get(liveUrl)
       .then(res => {
         const cache = res.data;
         const data = [];
-        console.log("cache");
-        console.log(cache);
-        
 
         cache.forEach(element => {
           // let reg = /^\/\/(.*?)?$/;
-            let video = {
-              id: element.id,
-              title: element.title.rendered,
-              type: element.match_sport,
-              image: element.featured_image.medium_large,
-              // videoId: getId(element.videos[0].split("?")),
-              date: element.match_dates.start,
-              videoV: element.videos,
+          let video = {
+            id: element.id,
+            title: element.title.rendered,
+            type: element.match_sport,
+            image: element.featured_image.medium_large,
+            // videoId: getId(element.videos[0].split("?")),
+            date: element.match_dates.start,
+            videoV: element.videos,
 
-              videoParts: element.videos[0],
-              videoU: element.videos[0].split("?"),
-              videoUrl: element.link,
-     
-            };
+            videoParts: element.videos[0],
+            videoU: element.videos[0].split("?"),
+            videoUrl: element.link
+          };
 
-            console.log("video");
-            console.log(video);
-            
-            data.push(video);
-
-          });
-
-          console.log("data:");
-          console.log(data);
-
-
+          data.push(video);
+        });
 
         this.setState({
           cache: data,
           isLoading: false,
-          isLive: true,
+          isLive: true
         });
-      
 
         if (cache.length === 0) {
-            this.setState({
-                isLive: false,
-            })
+          this.setState({
+            isLive: false
+          });
         }
-
-
       })
       .catch(error => {
         if (error.response) {
           console.log(error.responderEnd);
-          console.log(error);
-          
         }
       });
-
-   
   };
 
   componentDidMount() {
     const { isLoading } = this.state;
     this.fetchData();
     this.split();
-    
   }
-
 
   split = () => {
     const { cache } = this.state;
-
-
-    console.log("split");
-    
-    
-
-  }
+  };
 
   render() {
     const { isLoading, cache, isLive } = this.state;
 
-    console.log("cacheLIVE: ");
-    console.log(cache);
-    
     const CardContent = () => {
-        return (
-            cache.map(child => (
-                <CardLive
-                  key={child.id}
-                  id={child.id}
-                  title={child.title}
-                  type={child.type}
-                  image={child.image}
-                  videoUrl={child.videoUrl}
-                />
-                
-              ))
-        )
-    }
-
-    const Content = () => {
-        return isLoading ? (
-            <ActivityIndicator
-                style={styles.activityContainer}
-                size="large"
-                color="#E62341"
-            />
-      ) : (
-        <ScrollView
-            onScroll={this.onScroll()}
-            keyboardShouldPersistTaps="always"
-            keyboardDismissMode="on-drag"
-            snapToAlignment="start"
-            contentInsetAdjustmentBehavior="automatic"
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-          >
-            {isLive ?
-                <CardContent/>
-            :
-                <View>
-                    <Text style={styles.rowText}>Er zijn momenteel geen live uitzendingen</Text>
-                </View>
-            }
-        </ScrollView>
-        
-      );
+      return cache.map(child => (
+        <CardLive
+          key={child.id}
+          id={child.id}
+          title={child.title}
+          type={child.type}
+          image={child.image}
+          videoUrl={child.videoUrl}
+        />
+      ));
     };
 
+    const Content = () => {
+      return isLoading ? (
+        <ActivityIndicator
+          style={styles.activityContainer}
+          size="large"
+          color="#E62341"
+        />
+      ) : (
+        <ScrollView
+          onScroll={this.onScroll()}
+          keyboardShouldPersistTaps="always"
+          keyboardDismissMode="on-drag"
+          snapToAlignment="start"
+          contentInsetAdjustmentBehavior="automatic"
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+        >
+          {isLive ? (
+            <CardContent />
+          ) : (
+            <View>
+              <Text style={styles.rowText}>
+                Er zijn momenteel geen live uitzendingen
+              </Text>
+            </View>
+          )}
+        </ScrollView>
+      );
+    };
 
     return (
       <>
         <View style={styles.rowContainer}>
           <Text style={styles.categoryTitle}>Live uitzendingen</Text>
-            <Content />
+          <Content />
         </View>
       </>
     );

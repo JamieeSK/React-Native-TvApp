@@ -1,45 +1,45 @@
-@import '../../../styles/variables';
+@import "../../../styles/variables";
 
 .selectedCard {
-    height: 275;
-    width: 375;
-    margin-left: 20;
-    margin-right: 20;
-    border: 4px solid #e62341;
+  height: 275;
+  width: 375;
+  margin-left: 20;
+  margin-right: 20;
+  border: 4px solid #e62341;
 }
 
 .unselectedCard {
-    height: 250;
-    width: 350;
-    margin-left: 20;
-    margin-right: 20;
+  height: 250;
+  width: 350;
+  margin-left: 20;
+  margin-right: 20;
 }
 
 .imageContainer {
-    overflow: hidden;
-    flex: 2;
+  overflow: hidden;
+  flex: 2;
 }
 
 .cardTitle {
-    margin-top: 10px;
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 1.15rem;
-    width: 350;
+  margin-top: 10px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.15rem;
+  width: 350;
 }
 
 .cardGenre {
-    margin-top: 7px;
-    color: #BDC3C7;
-    font-size: 0.95rem;
-    text-transform: uppercase;
+  margin-top: 7px;
+  color: #bdc3c7;
+  font-size: 0.95rem;
+  text-transform: uppercase;
 }
 
 .type {
-    color: #C3272B;
+  color: #c3272b;
 }
 
 .icon {
-    // font-size: 0.50rem;
-    // color: color(danger);
+  // font-size: 0.50rem;
+  // color: color(danger);
 }
