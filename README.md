@@ -86,6 +86,39 @@ If you get this error:
 
 >Open terminal and emulator and run the script again, it should work now!
 
+
+## How to make an apk or aab for release (Android)?
+
+>First you need a key(store)password:
+
+{uitleg}
+
+Once you've made the password you can make the (signed) apk or aab.
+>Open your Android studio and open the android folder of your project in it.
+
+>Go to "Build" and choose "Generate Signed Bundle / APK"
+
+>Choose either "Android App Bundle" (aab) or "APK"
+
+#### APK
+
+>Choose "Create new" and select your ".keystore"-file & fill in the rest of the input fields. Press next.
+
+>Select "release" and check the 2 checkboxes at the bottom (Signature Versions). Press Finish and it will make the apk for you.
+
+
+
+
+#### aab
+
+
+
+
+You can find the apk or aab at the following folder:
+```
+cd android/app/release/
+```
+
 ## Authors
 
 This project is maintained by 'Het Kasteel'.
